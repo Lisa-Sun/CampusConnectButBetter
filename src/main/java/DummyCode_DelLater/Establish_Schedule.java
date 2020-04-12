@@ -11,6 +11,7 @@ public class Establish_Schedule {
 	public void UpdatJsonProperty(String jsonTableName, String updatePropertyName, String updatedPropertyValue)
 	{
 		
+		
 	}
 	
 	public void SetEmptySchedule()
@@ -26,19 +27,29 @@ public class Establish_Schedule {
 		
 	}
 	
-	public void ScheduleToJson()
+	public void ScheduleToJsonString()
+	{
+		//iterate through linked list
+		
+	}
+	
+	public void JsonToScheduleString()
 	{
 		
 	}
 	
-	public void JsonToSchedule()
+	public void GetDaysSchedule(String dayOfTheWeek)
 	{
+		//will need the day
+		//will also need to know if at end of quarter/semester
 		
 	}
 	
-	public void GetDaysSchedule()
+	
+	
+	public void GetImportantDate()
 	{
-		
+		GetJSonPropertyList("dddd", "sdfs");
 	}
 	
 	
