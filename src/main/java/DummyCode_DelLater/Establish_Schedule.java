@@ -22,8 +22,17 @@ public class Establish_Schedule {
 		//       Class node
 	}
 	
-	public void AddClassToSchedule()
+	public void BuildClassNode()
 	{
+		//build a class node with class details such as day, time and place
+	}
+	
+	public void AddClassToSchedule(String className)
+	{
+		//use GetJsonProperty(Class/Course table, course name)
+		//get dates and time
+		//feed above into BuildClassNode and get Class Node
+		
 		
 	}
 	
