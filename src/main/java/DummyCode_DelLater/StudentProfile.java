@@ -1,4 +1,4 @@
-package Group2.BetterCampusConnect;
+package DummyCode_DelLater;
 
 public class StudentProfile {
 
