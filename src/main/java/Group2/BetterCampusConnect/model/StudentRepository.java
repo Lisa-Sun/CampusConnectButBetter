@@ -10,9 +10,10 @@ import org.springframework.data.repository.CrudRepository;
 
 	
 	public interface StudentRepository extends CrudRepository<Student, Long> {
-	    //List<Student> findByStudentId(String student_num); 
+	    List<Student> findByStudentId(String student_id); 
 	    
 	    @Override
+	  
 	    List<Student> findAll();
 	}
 
