@@ -1,0 +1,1 @@
+ALTER TABLE course_base_info ALTER COLUMN course_name TYPE VARCHAR (300);
