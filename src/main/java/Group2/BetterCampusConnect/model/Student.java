@@ -16,7 +16,7 @@ import lombok.ToString;
 
 @Data
 @Entity
-@Table(name = "student")
+@Table(name = "student_info")
 @ToString
 
 public class Student implements Serializable{
@@ -25,7 +25,7 @@ public class Student implements Serializable{
 //	private Long id;
 	@Id
 	 @Column(name = "student_id")
-	 private String student_id;
+	 private String studentId;
 	 
 	 @Column(name = "first_name")
 	 private String firstName;
