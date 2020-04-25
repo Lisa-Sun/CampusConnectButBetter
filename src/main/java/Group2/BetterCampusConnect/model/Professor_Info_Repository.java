@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 
 
-public interface Professor_Info_Repository extends CrudRepository<Professor_Info, Long> {
+public interface Professor_Info_Repository extends CrudRepository<Professor_Info, String> {
     List<Student> findByProfessorId(String professor_id); 
     
     @Override
