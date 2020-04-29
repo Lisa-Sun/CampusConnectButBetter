@@ -1,10 +1,9 @@
 package Group2.BetterCampusConnect;
 
 import Group2.BetterCampusConnect.model.Student;
-import Group2.BetterCampusConnect.model.StudentLoginData;
-import Group2.BetterCampusConnect.model.StudentLoginRepository;
 import Group2.BetterCampusConnect.model.StudentRepository;
-
+import Group2.BetterCampusConnect.model.nosql.LoginData;
+import Group2.BetterCampusConnect.model.nosql.LoginRepository;
 import Group2.BetterCampusConnect.model.Professor_Info;
 import Group2.BetterCampusConnect.model.Professor_Info_Repository;
 
@@ -21,11 +20,12 @@ import org.springframework.data.repository.RepositoryDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 
-
-@SpringBootApplication
-//@ComponentScan("Group2.BetterCampusConnect.model")
+/*
+@SpringBootApplication(scanBasePackages= {"Group2.BetterCampusConnect.model"})
+@ComponentScan({"Group2.BetterCampusConnect.model"})
+@EntityScan({"Group2.BetterCampusConnect.model"})*/
 public class BetterCampusConnectApplication {
 
 	
@@ -38,19 +38,20 @@ public class BetterCampusConnectApplication {
 	
 	
 	@Bean
-    public CommandLineRunner saveLoginData(StudentLoginRepository repository) {
+    public CommandLineRunner saveLoginData(LoginRepository repository) {
         return (args) -> {
-        	repository.save(new StudentLoginData("123", "marc","marc@gmail.com","f873&#*Gfc8"));
-        	repository.save(new StudentLoginData("420", "bob","bob@gmail.com","f9qe7gf8GE"));
+        	repository.save(new LoginData("123", false, "marc","marc@gmail.com","f873&#*Gfc8"));
+        	repository.save(new LoginData("420", true, "bobd","bob@gmail.com","f9qe7gf8GE"));
         };
    }
 	
 	@Bean
-    public CommandLineRunner showAllLoginData(StudentLoginRepository repository) {
+    public CommandLineRunner showAllLoginData(LoginRepository repository) {
         return (args) -> {
-        	for (StudentLoginData customer : repository.findAll()) {
-        	      log.info(customer.toString());
-        	  }
+
+        	for (LoginData user : repository.findAll()) {
+        		log.info(user.toString());
+        	}
         };
    }
 	
@@ -58,6 +59,7 @@ public class BetterCampusConnectApplication {
 	@Bean
     public CommandLineRunner showAllStudentData(StudentRepository repository) {
         return (args) -> {
+        	
             // fetch all students
             log.info("Students found with findAll():");
             log.info("-------------------------------");
