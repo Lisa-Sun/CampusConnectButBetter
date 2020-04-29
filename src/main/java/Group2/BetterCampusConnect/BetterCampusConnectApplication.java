@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 @SpringBootApplication(scanBasePackages= {"Group2.BetterCampusConnect.model"})
 @ComponentScan({"Group2.BetterCampusConnect.model"})
 @EntityScan({"Group2.BetterCampusConnect.model"})*/
+@SpringBootApplication
 public class BetterCampusConnectApplication {
 
 	
