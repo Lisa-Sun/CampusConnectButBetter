@@ -19,7 +19,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "impdates")
 @ToString
-public class ImpDates{
+public class ImpDates implements Serializable{
 	
 	@Id
 	 @Column(name = "date_id")
