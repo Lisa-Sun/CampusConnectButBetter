@@ -1,4 +1,4 @@
-INSERT INTO financialPlans
+INSERT INTO financial_plan_overview
 (
 	plan_id,
 	plan_type,

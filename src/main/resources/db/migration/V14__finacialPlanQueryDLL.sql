@@ -1,7 +1,7 @@
 CREATE TYPE financialPlanType as ENUM ('grant', 'loan', 'scholarship', 'other');
 
 
-CREATE TABLE financialPlans
+CREATE TABLE financial_plan_overview
 (
 	plan_id VARCHAR(150) NOT NULL,
 	plan_type financialPlanType NOT NULL,

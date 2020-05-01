@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FinancialPlanOverviewRepository extends CrudRepository<FinancialPlanOverview, String> {
-	List<FinancialPlanOverview> findPlanById(String plan_id);
+	List<FinancialPlanOverview> findByPlanId(String plan_id);
 	
 	@Override
 	List<FinancialPlanOverview> findAll();
