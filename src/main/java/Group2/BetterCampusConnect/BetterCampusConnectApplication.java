@@ -4,8 +4,12 @@ import Group2.BetterCampusConnect.model.Student;
 import Group2.BetterCampusConnect.model.StudentRepository;
 import Group2.BetterCampusConnect.model.nosql.LoginData;
 import Group2.BetterCampusConnect.model.nosql.LoginRepository;
+
 import Group2.BetterCampusConnect.model.Professor_Info;
 import Group2.BetterCampusConnect.model.Professor_Info_Repository;
+
+import Group2.BetterCampusConnect.model.EmployeeInfo;
+import Group2.BetterCampusConnect.model.EmployeeInfo_Repository;
 
 import Group2.BetterCampusConnect.model.ImpDates;
 import Group2.BetterCampusConnect.model.ImpDatesRepository;
@@ -94,6 +98,19 @@ public class BetterCampusConnectApplication {
             log.info("-------------------------------");
             impDatesSql.findAll().forEach((imp_dates) -> {
                 log.info(imp_dates.toString());
+            });
+            log.info("-------------------------------");
+	   };
+   }
+   
+   @Bean
+   public CommandLineRunner showAllEmployeeInfo(EmployeeInfo_Repository employeeInfoSQL)
+   {
+	   return(args)-> {
+		   log.info("Professors found with findAll():");
+            log.info("-------------------------------");
+            employeeInfoSQL.findAll().forEach((employee_id) -> {
+                log.info(employee_id.toString());
             });
             log.info("-------------------------------");
 	   };
