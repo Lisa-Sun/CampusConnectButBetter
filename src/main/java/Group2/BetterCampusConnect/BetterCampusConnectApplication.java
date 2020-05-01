@@ -8,6 +8,7 @@ import Group2.BetterCampusConnect.model.Professor_Info;
 import Group2.BetterCampusConnect.model.Professor_Info_Repository;
 
 import Group2.BetterCampusConnect.model.ImpDates;
+import Group2.BetterCampusConnect.model.ImpDatesRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -79,6 +80,20 @@ public class BetterCampusConnectApplication {
             log.info("-------------------------------");
             profRepoSql.findAll().forEach((professor_info) -> {
                 log.info(professor_info.toString());
+            });
+            log.info("-------------------------------");
+	   };
+   }
+   
+   
+   @Bean
+   public CommandLineRunner showAllImpDates(ImpDatesRepository impDatesSql)
+   {
+	   return(args)-> {
+		   log.info("Professors found with findAll():");
+            log.info("-------------------------------");
+            impDatesSql.findAll().forEach((imp_dates) -> {
+                log.info(imp_dates.toString());
             });
             log.info("-------------------------------");
 	   };
