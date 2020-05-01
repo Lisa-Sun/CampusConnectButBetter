@@ -15,10 +15,10 @@ import lombok.ToString;
 
 @Data
 @Entity
-@Table(name = "financial_plan")
+@Table(name = "financial_plan_overview")
 @ToString
 
-public class FinancialPlan implements Serializable {
+public class FinancialPlanOverview implements Serializable {
 
 	@Id
 	@Column(name = "plan_id")

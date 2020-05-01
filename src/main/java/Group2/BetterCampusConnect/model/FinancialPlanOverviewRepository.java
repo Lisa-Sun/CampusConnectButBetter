@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FinancialPlanRepository extends CrudRepository<FinancialPlan, String> {
-	List<FinancialPlan> findPlanById(String plan_id);
+public interface FinancialPlanOverviewRepository extends CrudRepository<FinancialPlanOverview, String> {
+	List<FinancialPlanOverview> findPlanById(String plan_id);
 	
 	@Override
-	List<FinancialPlan> findAll();
+	List<FinancialPlanOverview> findAll();
 	
 }

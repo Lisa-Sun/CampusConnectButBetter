@@ -94,7 +94,7 @@
 
         <configuration>
 
-        <url>jdbc:postgresql://localhost:5432/postgres</url>
+        <url>jdbc:postgresql://localhost:5432/postgres?currentSchema=college</url>
 
         <user>postgres</user>
 
