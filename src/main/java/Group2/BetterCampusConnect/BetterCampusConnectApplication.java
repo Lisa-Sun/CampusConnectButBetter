@@ -4,9 +4,15 @@ import Group2.BetterCampusConnect.model.Student;
 import Group2.BetterCampusConnect.model.StudentRepository;
 import Group2.BetterCampusConnect.model.nosql.LoginData;
 import Group2.BetterCampusConnect.model.nosql.LoginRepository;
+
 import Group2.BetterCampusConnect.model.Professor_Info;
 import Group2.BetterCampusConnect.model.Professor_Info_Repository;
 
+import Group2.BetterCampusConnect.model.EmployeeInfo;
+import Group2.BetterCampusConnect.model.EmployeeInfo_Repository;
+
+import Group2.BetterCampusConnect.model.ImpDates;
+import Group2.BetterCampusConnect.model.ImpDatesRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -57,22 +63,6 @@ public class BetterCampusConnectApplication {
    }
 	
 	
-	@Bean
-    public CommandLineRunner showAllStudentData(StudentRepository repository) {
-        return (args) -> {
-        	
-            // fetch all students
-            log.info("Students found with findAll():");
-            log.info("-------------------------------");
-            repository.findAll().forEach((student) -> {
-                log.info(student.toString());
-            });
-            log.info("-------------------------------");
-        };
-   }
-	
-
-	
    @Bean
     public CommandLineRunner showAllStudents(StudentRepository repository) {
         return (args) -> {
@@ -94,6 +84,33 @@ public class BetterCampusConnectApplication {
             log.info("-------------------------------");
             profRepoSql.findAll().forEach((professor_info) -> {
                 log.info(professor_info.toString());
+            });
+            log.info("-------------------------------");
+	   };
+   }
+   
+   
+   @Bean
+   public CommandLineRunner showAllImpDates(ImpDatesRepository impDatesSql)
+   {
+	   return(args)-> {
+		   log.info("Professors found with findAll():");
+            log.info("-------------------------------");
+            impDatesSql.findAll().forEach((imp_dates) -> {
+                log.info(imp_dates.toString());
+            });
+            log.info("-------------------------------");
+	   };
+   }
+   
+   @Bean
+   public CommandLineRunner showAllEmployeeInfo(EmployeeInfo_Repository employeeInfoSQL)
+   {
+	   return(args)-> {
+		   log.info("Professors found with findAll():");
+            log.info("-------------------------------");
+            employeeInfoSQL.findAll().forEach((employee_id) -> {
+                log.info(employee_id.toString());
             });
             log.info("-------------------------------");
 	   };
