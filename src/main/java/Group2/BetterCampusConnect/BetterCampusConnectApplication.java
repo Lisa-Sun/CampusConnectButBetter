@@ -7,6 +7,7 @@ import Group2.BetterCampusConnect.model.nosql.LoginRepository;
 import Group2.BetterCampusConnect.model.Professor_Info;
 import Group2.BetterCampusConnect.model.Professor_Info_Repository;
 
+import Group2.BetterCampusConnect.model.ImpDates;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -56,22 +57,6 @@ public class BetterCampusConnectApplication {
         };
    }
 	
-	
-	@Bean
-    public CommandLineRunner showAllStudentData(StudentRepository repository) {
-        return (args) -> {
-        	
-            // fetch all students
-            log.info("Students found with findAll():");
-            log.info("-------------------------------");
-            repository.findAll().forEach((student) -> {
-                log.info(student.toString());
-            });
-            log.info("-------------------------------");
-        };
-   }
-	
-
 	
    @Bean
     public CommandLineRunner showAllStudents(StudentRepository repository) {
