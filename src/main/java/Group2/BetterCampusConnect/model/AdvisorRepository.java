@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 	public interface AdvisorRepository extends CrudRepository<AdvisorInfo, Integer> {
-	    List<AdvisorInfo> findByAdvisorId(int advisor_id); 
+	    List<AdvisorInfo> findByEmployeeId(String employee_id);
 	    
 	    @Override
 	    List<AdvisorInfo> findAll();
