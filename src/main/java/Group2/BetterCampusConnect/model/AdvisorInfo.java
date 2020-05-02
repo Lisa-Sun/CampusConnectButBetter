@@ -19,14 +19,11 @@ import lombok.ToString;
 @Table(name = "advisorinfo")
 @ToString
 
-public class AdvisorInfo implements Serializable{
+public class AdvisorInfo extends EmployeeInfo{
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 //	private Long id;
-	@Id
-	 @Column(name = "advisor_id")
-	 private int advisorId;
-	 
+
 	 @Column(name = "firstname")
 	 private String firstname;
 	 
