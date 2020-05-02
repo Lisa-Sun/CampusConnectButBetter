@@ -168,7 +168,7 @@ public class BetterCampusConnectApplication {
    public CommandLineRunner showAllImpDates(ImpDatesRepository impDatesSql)
    {
 	   return(args)-> {
-		   log.info("Professors found with findAll():");
+		   log.info("ImpDates found with findAll():");
             log.info("-------------------------------");
             impDatesSql.findAll().forEach((imp_dates) -> {
                 log.info(imp_dates.toString());
@@ -181,7 +181,7 @@ public class BetterCampusConnectApplication {
    public CommandLineRunner showAllEmployeeInfo(EmployeeInfo_Repository employeeInfoSQL)
    {
 	   return(args)-> {
-		   log.info("Professors found with findAll():");
+		   log.info("Employee found with findAll():");
             log.info("-------------------------------");
             employeeInfoSQL.findAll().forEach((employee_id) -> {
                 log.info(employee_id.toString());
