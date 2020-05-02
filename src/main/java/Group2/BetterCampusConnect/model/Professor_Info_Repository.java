@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface Professor_Info_Repository extends CrudRepository<Professor_Info, String> {
-    List<Professor_Info> findByProfessorId(String professor_id); 
+    List<Professor_Info> findByEmployeeId(String employee_id); 
     
     @Override
   
