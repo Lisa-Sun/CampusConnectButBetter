@@ -1,6 +1,7 @@
 package Group2.BetterCampusConnect.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,5 +33,28 @@ public class Student implements Serializable{
 	 
 	 @Column(name = "last_name")
 	 private String lastName;
+	 
+	 @Column(name = "Email")
+	 private String email;
+	 
+	 @Column(name = "Pwd")
+	 private String pwd;
+	 
+	 @Column(name = "GPA")
+	 private BigDecimal gpa;
+	 
+	 @Column(name = "Account_Balance")
+	 private BigDecimal accountbalance;
+	 
+	 /*degree_id*/
+	 @Column(name = "Major")
+	 private int major;
+	 
+	 /*degree_id*/
+	 @Column(name = "Minor")
+	 private int minor;
+	 
+	 @Column(name = "Degree_level")
+	 private String degreelevel;
 	 
 }
