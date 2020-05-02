@@ -20,10 +20,8 @@ import lombok.ToString;
 @ToString
 
 
-public class Professor_Info {
-	@Id
-	 @Column(name = "professor_id")
-	 private String professorId;
+public class Professor_Info extends EmployeeInfo{
+
 	 
 	 @Column(name = "first_name")
 	 private String firstName;
@@ -34,7 +32,5 @@ public class Professor_Info {
 	 @Column(name = "department")
 	 private String department;
 	 
-	 @Column(name = "email")
-	 private String email;
 
 }
