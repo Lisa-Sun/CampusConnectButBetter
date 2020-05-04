@@ -5,4 +5,6 @@ ADD GPA NUMERIC (3, 2),
 ADD Account_Balance NUMERIC (7, 2),
 ADD Major INTEGER,
 ADD Minor INTEGER,
-ADD degree_level varchar(20);
+ADD degree_level varchar(20),
+ADD last_name_first_two VARCHAR(3)
+;

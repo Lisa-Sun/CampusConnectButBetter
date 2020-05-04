@@ -11,7 +11,8 @@ INSERT INTO student_info
 	Account_Balance,
 	Major,
 	Minor,
-	degree_level
+	degree_level,
+	last_name_first_two
 	)
 VALUES
 	('1234abcd',
@@ -23,4 +24,5 @@ VALUES
 	10452.2,
 	5,
 	1,
-	'Undergraduate');
+	'Undergraduate',
+	'SM');
