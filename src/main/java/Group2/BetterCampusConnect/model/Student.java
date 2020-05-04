@@ -57,4 +57,7 @@ public class Student implements Serializable{
 	 @Column(name = "Degree_level")
 	 private String degreelevel;
 	 
+	 @ManyToOne
+	 @JoinColumn(name = "last_name_first_two", referencedColumnName = "lastname_student_section_id")
+	 private AdvisorInfo lastNameFirstTwo;
 }
