@@ -54,8 +54,6 @@ public class BetterCampusConnectApplication {
 	private static final Logger log = LoggerFactory.getLogger(BetterCampusConnectApplication.class);
 	
 	
-
-	
 	@Bean
     public CommandLineRunner saveCourseData(CourseRepository course) {
         return (args) -> {
@@ -188,6 +186,20 @@ public class BetterCampusConnectApplication {
             });
             log.info("-------------------------------");
 	   };
+   }
+	
+	
+   
+   @Bean
+   public CommandLineRunner showProfessorInfoId(Professor_Info_Repository professorRepo)
+   {
+	   Professor_Info profInfo = professorRepo.findByEmployeeId("d1c2b3a4");
+
+	   return(args) ->{
+		   System.out.println("----------------");
+		   System.out.println(profInfo.toString()); 
+	   };
+	
    }
    
    
