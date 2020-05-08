@@ -4,7 +4,12 @@
     padding:10px;
     background-color:white;
     box-shadow: 1px 2px 2px #BDBDBD;
-    
+     border-radius: 25px;
+}
+
+a{
+color: #03DAC6;
+text-decoration: none;
 }
 
 .boxbutton{
@@ -13,7 +18,10 @@
     border-right: none;
      border-bottom: none;
      background-color: #03DAC6;
-
+	height:30px;
+	  color: rgba(1, 1, 1, 0.8);
+	  font-size:15px;
+	  border-radius: 25px;
      
 }
 
@@ -21,6 +29,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
+    color: rgba(0, 0, 0, 0.83);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -33,20 +42,21 @@ body{
     padding:1%;
     background-color: #F5F5F5;
     color:rgba(0, 0, 0, 0.83);
+     	
 }
 
 .text {
     background-color: transparent;
-    width:80%;
+    width:100%;
     outline: none;
     outline-style: none;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: solid #BDBDBD 1px;
+  	margin-bottom:20px;
    
-   
-    
+    font-size:15px;
 }
 
 
