@@ -1,0 +1,57 @@
+﻿
+
+.box{
+    padding:10px;
+    background-color:white;
+    box-shadow: 1px 2px 2px #BDBDBD;
+    
+}
+
+.boxbutton{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+     border-bottom: none;
+     background-color: #03DAC6;
+
+     
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.highlight{
+    background-color: #03DAC6;
+     padding:200px;
+}
+
+body{
+    padding:1%;
+    background-color: #F5F5F5;
+    color:rgba(0, 0, 0, 0.83);
+}
+
+.text {
+    background-color: transparent;
+    width:80%;
+    outline: none;
+    outline-style: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid #BDBDBD 1px;
+   
+   
+    
+}
+
+
+/*
+
+     background-color: #03DAC6;
+    box-shadow: 2px 2px #018786;
+*/
