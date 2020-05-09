@@ -1,21 +1,23 @@
 ﻿<!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <title>CampusConnectButBetter</title>
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body style="float:left;">
     <div class="box" style="width:30%;height:90%;float:left">
-
+    
     
        <center> <h1 ><b>CampusConnectButBetter</b></h1>
            
-            <div style="padding:10px">
+            <div style="padding:10px" th:action = "@{/login}" th:object = "${loginData}" method = "POST">
                 
-                <input type="text" placeholder="email" class="text" />
-                <input type="password" placeholder="password" class="text" />
+                <input type="text" placeholder="email" class="text" th:field = "*{id}"/>
+                <input type="password" placeholder="password" class="text" th:field = "*{passwordHash}"/>
                
                	<div id="signup" style="overflow: hidden;">
                 	 <input type="password" placeholder="repeat password" class="text" />
@@ -34,6 +36,7 @@
               
             		<h4 > Dont have an account? <a href="javascript: void(0)" onClick="register()" >Sign up</a> </h4> 
             	</div>
+
             </div>
 </center>
        
