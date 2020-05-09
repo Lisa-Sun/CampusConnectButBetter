@@ -20,6 +20,23 @@ public class LoginData {
 		 this.admin = admin;
 	 }
 	 
+	 public LoginData()
+	 {
+	 	this.phone = "";
+	 	this.email = "";
+	 	this.admin = false;
+	 }
+
+	 public String getId()
+	 {
+	 	return this.id;
+	 }
+
+	 public String getPasswordHash()
+	 {
+	 	return this.passwordHash;
+	 }
+
 	 public String toString() {
 		 	if(!admin) {
 			    return String.format(
