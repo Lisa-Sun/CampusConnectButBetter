@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Course Tabel Test</title>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <!--link js here when it is written-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<tr th:each="obj : ${advisorInfo}">
+     <td th:text="${obj.firstname}"></td>
+     <td th:text = "${obj.lastname}"></td>
+</tr>	
+</body>
+</html>
