@@ -1,4 +1,4 @@
-package Group2.BetterCampusConnect.Controller;
+package Group2.BetterCampusConnect.controller;
 
 import Group2.BetterCampusConnect.model.nosql.LoginData;
 import Group2.BetterCampusConnect.model.nosql.LoginRepository;

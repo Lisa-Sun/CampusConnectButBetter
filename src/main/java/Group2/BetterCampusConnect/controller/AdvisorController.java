@@ -1,4 +1,4 @@
-package Group2.BetterCampusConnect.Controller;
+package Group2.BetterCampusConnect.controller;
 
 import Group2.BetterCampusConnect.model.AdvisorInfo;
 import Group2.BetterCampusConnect.model.AdvisorRepository;
