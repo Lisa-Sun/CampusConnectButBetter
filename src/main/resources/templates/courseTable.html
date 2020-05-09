@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Course Tabel Test</title>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <!--link js here when it is written-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div layout:fragment="content" class="row">
+    	<div class="col-xs-8 col-md-8">
+
+    		<h2>Course List</h2>
+    		<div class = "table-responsive">
+    			<table class = "table" id = "course-table">
+    				<thead>
+    					<tr>
+    						<th>Course ID</th>
+    						<th>Course Name</th>
+    						<th>Class Location</th>
+    						<th>Brief Description</th>
+    						<th>More Information</th>
+    					</tr>
+    					<tbody th:each = "course : ${courseOverview}">
+    						<td th:text="${course.id}"></td>
+    						<td th:text="${course.name}"></td>
+    						<td th:text="${course.location}"></td>
+    						<td th:text ="${course.description}"></td>
+    						<td href="/create">
+                                <!--<span class="glyphicon glyphicon-plus-sign">
+                                    
+                                </span>+-->
+                                <input type="button" class="moreInfoButton" value="More Information" style = "margin-right:50px">
+                                </td>
+
+    					</tbody>
+    				</thead>
+    			</table>
+    		</div>
+    	</div>
+    </div>
+
+
+</body>
+</html>
