@@ -13,7 +13,7 @@ public class Course {
 	 @Id
 	 public String id;
 	 public String name;
-	 public int sectionNumber;
+	 public String sectionNumber;
 	 
 	 public List<String> majorRequirements;
 	 public List<String> prerequisites;
@@ -29,7 +29,7 @@ public class Course {
 	 
 
 	 
-	 public Course(String id, String name, int sectionNumber, List<String> majorRequirements, List<String> prerequisites,
+	 public Course(String id, String name, String sectionNumber, List<String> majorRequirements, List<String> prerequisites,
 			int capacity, List<String> studentsEnrolled, List<String> waitList, LocalDateTime startTime,
 			String building, int room, List<String> professors, LocalDateTime startDate, String description) {
 		super();

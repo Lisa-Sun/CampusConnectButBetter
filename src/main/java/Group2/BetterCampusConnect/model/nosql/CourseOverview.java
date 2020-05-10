@@ -13,7 +13,7 @@ public class CourseOverview {
 	 @Id
 	 public String id;
 	 public String name;
-	 public int sectionNumber;
+	 public String sectionNumber;
 	 
 
 	 public LocalDateTime startDate;
@@ -22,7 +22,7 @@ public class CourseOverview {
 	 
 	 
 	 
-	public CourseOverview(String id, String name, int sectionNumber, LocalDateTime startDate, String location,
+	public CourseOverview(String id, String name, String sectionNumber, LocalDateTime startDate, String location,
 			String description) {
 		super();
 		this.id = id;

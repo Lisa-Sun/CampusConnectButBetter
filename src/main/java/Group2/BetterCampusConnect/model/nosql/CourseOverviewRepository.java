@@ -12,7 +12,16 @@ public interface CourseOverviewRepository extends MongoRepository<CourseOverview
 
 	public Optional<CourseOverview> findById(String id);
 
-	//public Optional<List<CourseOverview>> search();
-	@Query("{ 'name' : ?0 }")
-	List<CourseOverview> search(String firstname);
+	/*
+	 * If we ever need to do a "greater than (arbitrary number) level course" search we can use this 
+	 * query in the or expression to convert the section number to a string and do comparisons
+	 * 
+	 * { $expr: { $gt: [{ $toDouble: "$sectionNumber" }, 100] } }
+	 * 
+	 */
+	@Query("{ $or: [" + 
+			"    {name:{'$regex' : \"?0\", '$options' : 'i'}}," + 
+			"    {sectionNumber:{'$regex' : \"?0\", '$options' : 'i'}}" +
+			"]}")
+	List<CourseOverview> search(String query);
 }
