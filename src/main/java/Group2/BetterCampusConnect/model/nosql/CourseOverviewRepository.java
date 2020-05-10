@@ -21,7 +21,8 @@ public interface CourseOverviewRepository extends MongoRepository<CourseOverview
 	 */
 	@Query("{ $or: [" + 
 			"    {name:{'$regex' : \"?0\", '$options' : 'i'}}," + 
-			"    {sectionNumber:{'$regex' : \"?0\", '$options' : 'i'}}" +
+			"    {sectionNumber:{'$regex' : \"?0\", '$options' : 'i'}}," +
+			"    {description:{'$regex' : \"?0\", '$options' : 'i'}}" +
 			"]}")
 	List<CourseOverview> search(String query);
 }
