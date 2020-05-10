@@ -6,8 +6,10 @@ import Group2.BetterCampusConnect.model.nosql.CourseOverviewRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,17 +18,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class CourseTableController {
+public class CourseController {
 
 
 	@Autowired
 	CourseOverviewRepository courseOverviewRepo;
 
-	@RequestMapping("/course")
+	
+	
+	@RequestMapping("/coursebrowser")
 	public String courseGeneral(Model model)
 	{
-		model.addAttribute("courseOverview", courseOverviewRepo.findAll());
-		return "courseTable";
+		//model.addAttribute("courses", courseOverviewRepo.findAll());
+		return "coursebrowser";
 	}
+	
+	@RequestMapping("/courses")
+	public String courseSearch(@RequestParam(name = "query", required = false, defaultValue = "") String query, Model model )
+	{
+		
+		if(query.equals("")){
+		
+			model.addAttribute("courses", courseOverviewRepo.findAll());
+		}else {
+			List<CourseOverview> results = courseOverviewRepo.search(query);
+			if(results.size()==0) {
+				model.addAttribute("query",query);
+				return "noresults";
+			}
+			model.addAttribute("courses", results);
+		}
+		return "courses";
+	}
+	
 }
 

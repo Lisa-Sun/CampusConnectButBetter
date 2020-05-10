@@ -1,0 +1,57 @@
+
+<body>
+
+    <div layout:fragment="content" class="row">
+    
+ 
+	
+    
+    	
+
+    		<div class = "table-responsive " th:each = "course : ${courses}">
+    		<div class="box" style="margin:10px">
+    			<div >
+	    			<h1 style="font-weight:bold;float:left" th:text ="${course.name} + '&nbsp;'"></h1> 
+	    			
+	    			<h1 style=" float:left; color: #03DAC6" th:text ="${course.sectionNumber}"> </h1>
+	    			
+	    		</div>
+	    		
+	    			<table class = "table" id = "course-table" style="margin-bottom:0px">
+	    				
+	    				
+		    					
+		    					<tr>
+		    						<th>Course ID</th>
+		    						<th>Course Name</th>
+		    						<th>Class Location</th>
+		    						<th>Brief Description</th>
+		    						<th>More Information</th>
+		    					</tr>
+		    					<tbody >
+		    						<td th:text="${course.id}"></td>
+		    						<td th:text="${course.name}"></td>
+		    						<td th:text="${course.location}"></td>
+		    						<td th:text ="${course.description}"></td>
+		    						<td href="/create">
+		                                <!--<span class="glyphicon glyphicon-plus-sign">
+		                                    
+		                                </span>+-->
+		                                <input type="button" class="boxbutton" value="More Information" >
+		                            </td>
+		
+		    					</tbody>
+		    					
+		    				</thead>
+	    					
+	    				
+	    			</table>
+    			</div>
+    			
+    			
+    		</div>
+    	
+    </div>
+
+
+</body>

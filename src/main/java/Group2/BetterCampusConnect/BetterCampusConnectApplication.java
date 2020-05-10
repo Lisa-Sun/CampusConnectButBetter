@@ -70,6 +70,8 @@ public class BetterCampusConnectApplication {
         return (args) -> {
         	course.save(new CourseOverview(
         			"f33f32", "Mat", 101, LocalDateTime.now(),"DePaul Center", "Math lessons, for the guys"));
+        	course.save(new CourseOverview(
+        			"432fh8", "Sci", 202, LocalDateTime.now(),"Lincoln Parks", "Science lessons, for the gals"));
         };
    }
 	
