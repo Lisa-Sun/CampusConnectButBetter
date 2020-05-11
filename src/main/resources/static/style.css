@@ -4,12 +4,28 @@
     padding:20px;
     background-color:white;
     box-shadow: 1px 2px 2px #BDBDBD;
-     border-radius: 25px;
+    border-radius: 25px;
 }
 
 a{
 color: #03DAC6;
 text-decoration: none;
+font-weight: 900;
+}
+
+a:hover{
+color: #00a896;
+text-decoration: none;
+
+}
+
+.boxnavbar{
+	width:100%;
+	margin:0px;
+	border:0px;
+	padding:10px;
+	background-color:white;
+	
 }
 
 .boxbutton{
@@ -25,6 +41,14 @@ text-decoration: none;
 	  
      
 }
+
+nav a{
+    margin-right: 30px;
+}
+
+/*dark: #00a896; light: #66fff9 secondary #6200EE*/
+
+
 
 .moreInfoButton
 {

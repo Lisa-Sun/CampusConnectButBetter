@@ -6,7 +6,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body style="float:left;">
     <div class="box" style="width:30%;height:90%;float:left">
@@ -14,7 +14,7 @@
     
        <center> <h1 ><b>CampusConnectButBetter</b></h1>
            
-            <div style="padding:10px" th:action = "@{/login}" th:object = "${loginData}" method = "POST">
+            <form style="padding:10px" th:action = "@{/login}" th:object = "${loginData}" method = "POST">
                 
                 <input type="text" placeholder="email" class="text" th:field = "*{id}"/>
                 <input type="password" placeholder="password" class="text" th:field = "*{passwordHash}"/>
@@ -31,13 +31,13 @@
                 
                
                <div id ="signupText">
-                	<input type="button" class="boxbutton" value="Login" style="width:100%; margin-right:10px">
+                	<input type="submit" class="boxbutton" value="Login" style="width:100%; margin-right:10px">
                 
               
             		<h4 > Dont have an account? <a href="javascript: void(0)" onClick="register()" >Sign up</a> </h4> 
             	</div>
 
-            </div>
+            </form>
 </center>
        
     </div>

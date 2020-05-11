@@ -15,8 +15,9 @@ public class StartController {
     }
     
     @GetMapping("/login")
-    public String login(Model model) {
     
+    public String login(Model model) {
+    	System.out.println("here");
         return "login";
     }
 
