@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Courses</title>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-    <!--link js here when it is written-->
+    <title>Financial Planning</title>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/style.css">
-
 </head>
 <body>
-
     <div layout:fragment="content" class="row">
 
-    	<div class="col-xs-8 col-md-9" style="">
+    	<div class="col-xs-8 col-md-9">
 
 	    	<div class="searchCard">  	
-				<span style="float:left; margin-right:10px; opacity:0.25;-webkit-text-stroke: 2px white;" class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				<span style="float:left; margin-right:10px; opacity:0.25;-webkit-text-stroke: 2px black;" class="glyphicon glyphicon-search" aria-hidden="true"></span>
 				<input style="float:left; width:50%;" id="searchbar" type="text" placeholder="Course search" class="text" /><br>
 			</div>
 			
@@ -39,7 +36,7 @@
 <script type="text/javascript">
 
 function search(query){
-	$.get("courses?query="+query, function(data) {
+	$.get("financialPlanning?query="+query, function(data) {
 		$("#content").fadeOut("fast", function() {
  			$("#content").html(data);
  			$("#content").fadeIn("fast");
