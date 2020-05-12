@@ -1,0 +1,71 @@
+   <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Profile</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+   <div class="container body-content">
+    <div>
+        <div class="row">
+            <div class="col-sm-3">
+               
+            </div>
+            <div class="col-sm-9">
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <img src="imgs/DIBS.jpg" class="img-circle img-thumbnail">
+                    </div>
+                    <br>
+                     <center><h1>${name}</h1></center>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>Degree(s)</b> </div>
+                        <ul class="list-group">
+                            <li class="list-group-item text-right"><span class="pull-left"><strong>${major} : ${degree_level} </strong></span><b>Major</b></li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong>${minor} : ${degree_level}</strong></span> <b>Minor</b></li>
+                        </ul>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>Accumulate GPA</b></div>
+                        <center> <H1>${GPA}</H1></center>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                <div class="col-md-2 "></div>
+                    <div class="col-md-8 box">
+                        <form class="form" action="##" method="post">
+                            <h4><b>Student ID:</b> </h4>
+                            <h4># ${student_id} </h4>
+                            
+                            <h4 style="text-style:bold"><b>First name:</b></h4>
+                            <input type="text" class="text" name="first_name" placeholder="first name" value=${first_name}>
+                            <h4><b>Last name:<b></h4>
+                            <input type="text" class="text" name="last_name" placeholder="last name" value=${last_name}>
+                            <h4><b>Email:<b></h4>
+                            <input type="email" class="text" name="email" id="email" placeholder="you@email.com">
+                            <h4><b>Password:<b></h4>
+                            <input type="password" class="text" name="password" id="password" placeholder="password">
+                            <h4><b>Repeat Password:<b></h4>
+                            <input type="password" class="text" name="password2" id="password2" placeholder="password2">
+                            <div class="col-xs-12">
+                                <br>
+                                <input type="button" class="boxbutton" value="Save" style="width:100%; margin-right:10px">
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </body>
+</html>
