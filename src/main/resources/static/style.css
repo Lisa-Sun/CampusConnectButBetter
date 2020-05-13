@@ -37,8 +37,7 @@ text-decoration: none;
 	height:30px;
 	  color: rgba(1, 1, 1, 0.8);
 	  font-size:15px;
-	  border-radius: 25px;
-	  
+	  border-radius: 25px; 
      
 }
 
@@ -105,6 +104,17 @@ body{
     font-size:25px;
 }
 
+
+.timeTable{
+  table-layout: fixed ;
+  width:80%;
+  height:90%
+}
+
+.timeTable-td{
+  width :20%;
+  height :20%;
+}
 /*
 
      background-color: #03DAC6;
