@@ -25,10 +25,10 @@ public class FinanceController {
     FinancialPlanOverviewRepository FinancialPlanOverview;
 
 
-    @RequestMapping("/financialPlanningBrowswer")
+    @RequestMapping("/financialPlanningBrowser")
     public String FinancialPlan(Model model)
     {
-        return "financialPlanningBrowswer";
+        return "financialPlanningBrowser";
     }
 
     @RequestMapping("/FinancialPlanning")
