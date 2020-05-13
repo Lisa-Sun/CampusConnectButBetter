@@ -18,6 +18,26 @@
                 <h1 style="font-weight:bold;float:left" th:text ="${plan.plan_type} + '&nbsp;'"></h1> 
 	    		<h1 style=" float:left; color: #03DAC6" th:text ="${plan.plan_amount}"></h1>
             </div>
+            
+            <table class="table" id="financial-table" style="margin-bottom:0px">
+            
+                <tr>
+                    <th>Plan ID</th>
+                    <th>Plan Type</th>
+                    <th>Plan Amount</th>
+                    <th>More Info</th>
+                </tr>
+                <tbody>
+                    <td th:text="${plan.planId}"></td>
+                    <td th:text="${plan.planType}"></td>
+                    <td th:text="${plan.planAmount}"></td>
+                    <td th:text="${plan.moreInfoLink}"></td>
+                    <td href="/create">
+                        <input type="button" class="boxbutton" value="More Information">
+                    </td>
+                    
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
