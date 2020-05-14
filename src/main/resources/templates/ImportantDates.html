@@ -7,11 +7,153 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
     <h1 class="display-4"><p> Important Dates</p></h1>
+    <p id = "currentDate"></p>
+
+     <div >
+    
+
+            <div class = "table-responsive "> <!-- th:each = "dates : ${dates}"> -->
+                <div class="box" style="margin:10px;float:left" >
+                    
+                    
+                        <table class = "table" id = "month" style="margin-bottom:0px">
+                            <thead id = "eventDate" style = "color: #03DAC6" >  May  14 </thead>
+                                <div value></div>
+                                    <tr>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        
+                                    </tr>
+                                    <tbody >
+                                        <td>May 14</td>
+                                        <td>May 14</td>
+                                        <!--<td th:text="${course.id}"></td>
+                                        <td th:text="${course.name}"></td>
+                                        <td th:text="${course.location}"></td>
+                                        <td th:text ="${course.description}"></td>
+                                        <td href="/create"> -->
+                                            <!--<span class="glyphicon glyphicon-plus-sign">
+                                                
+                                            </span>+-->
+                                        </td>
+            
+                                    </tbody>
+                                    
+                                </thead>
+                            
+                        </table>
+
+                    </div>
+
+                 <div class="box" style="margin:10px;float:left" >
+                    
+                        <table class = "table" id = "month" style="margin-bottom:0px">
+                            <thead id = "eventDate" style = "color: #03DAC6">  May  15 </thead>
+                            
+                                    <tr>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        
+                                    </tr>
+                                    <tbody >
+                                        <td>May 15</td>
+                                        <td>May 16</td>
+                                        <!--<td th:text="${course.id}"></td>
+                                        <td th:text="${course.name}"></td>
+                                        <td th:text="${course.location}"></td>
+                                        <td th:text ="${course.description}"></td>
+                                        <td href="/create"></td> -->
+                                            <!--<span class="glyphicon glyphicon-plus-sign">
+                                                
+                                            </span>+-->
+                                        
+                                    </tbody>
+                                    
+                                </thead>
+                            
+                        </table>
+                </div>
+                <div class="box" style="margin:10px;float:left" >
+                    
+                        <table class = "table" id = "month" style="margin-bottom:0px">
+                            <thead id = "eventDate" style = "color: #03DAC6">  May  16 </thead>
+                            
+                                    <tr>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        
+                                    </tr>
+                                    <tbody >
+                                        <td>May 16</td>
+                                        <td>May 16</td>
+                                        <!--<td th:text="${course.id}"></td>
+                                        <td th:text="${course.name}"></td>
+                                        <td th:text="${course.location}"></td>
+                                        <td th:text ="${course.description}"></td>
+                                        <td href="/create"></td> -->
+                                            <!--<span class="glyphicon glyphicon-plus-sign">
+                                                
+                                            </span>+-->
+                                        
+                                    </tbody>
+                                    
+                                </thead>
+                            
+                        </table>
+                </div>
+            </div>
+        
+    </div>
+
+
+    
+
+    <script type="text/javascript">
+
+        var dt = new Date();
+        var currentMonth = dt.getMonth() + 1;
+        var currentYear = dt.getFullYear();
+        var currentDay = dt.getDate();
+        var month = document.getElementById("month");
+
+        //being very hacky here LS
+        var currentMonth = "May";
+
+        document.getElementById("currentDate").innerHTML = dt.toDateString();
+
+        highLightDay(currentDay, currentMonth);
+
+        function highLightDay(day, month)
+        {   
+            var currentDateString = "" + month + " " + day;
+            var eventTables = document.querySelectorAll("[id^='month']");
+            var textDate, textDateElement, i;
+
+            for (i = 0; i < eventTables.length; ++i)
+            {
+                textDateElement = eventTables[i].getElementsByTagName("td")[0];
+                textTemp = textDateElement.innerHTML;
+                alert(textTemp);
+
+                if (textTemp == currentDateString)
+                {
+                    break;
+                }
+            }
+            //alert(textTemp);
+            var dateTable = textDateElement.parentElement.parentElement.parentElement;//if you get tagName you can get table
+            alert(dateTable);
+            dateTable.setAttribute("class", "currentDateTableChange");
+            //dateTable.style.bgcolor = "yellow";
+            //dateTable.style.bgcolor = "yellow";
+        }
+
+    </script>
 
 </body>
 </html>
