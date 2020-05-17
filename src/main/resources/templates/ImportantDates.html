@@ -107,6 +107,35 @@
                             
                         </table>
                 </div>
+
+                <div class="box" style="margin:10px;float:left" >
+                    
+                        <table class = "table" id = "month" style="margin-bottom:0px">
+                            <thead id = "eventDate" style = "color: #03DAC6">  May  17 </thead>
+                            
+                                    <tr>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        
+                                    </tr>
+                                    <tbody >
+                                        <td>May 17</td>
+                                        <td>May 17</td>
+                                        <!--<td th:text="${course.id}"></td>
+                                        <td th:text="${course.name}"></td>
+                                        <td th:text="${course.location}"></td>
+                                        <td th:text ="${course.description}"></td>
+                                        <td href="/create"></td> -->
+                                            <!--<span class="glyphicon glyphicon-plus-sign">
+                                                
+                                            </span>+-->
+                                        
+                                    </tbody>
+                                    
+                                </thead>
+                            
+                        </table>
+                </div>
             </div>
         
     </div>
@@ -139,19 +168,20 @@
             {
                 textDateElement = eventTables[i].getElementsByTagName("td")[0];
                 textTemp = textDateElement.innerHTML;
-                alert(textTemp);
 
                 if (textTemp == currentDateString)
                 {
+
                     break;
                 }
+                textDateElement = -2;
+
             }
 
             if(textDateElement != 2)
             {
                 //alert(textTemp);
                 var dateTable = textDateElement.parentElement.parentElement.parentElement;//if you get tagName you can get table
-                alert(dateTable);
                 dateTable.setAttribute("style", "background-color:#03DAC6");
                 //dateTable.style.bgcolor = "yellow";
                 //dateTable.style.bgcolor = "yellow";
