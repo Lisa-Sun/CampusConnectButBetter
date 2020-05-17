@@ -43,6 +43,22 @@ text-decoration: none;
      
 }
 
+.boxPanel
+{
+    width: 100%;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+     border-bottom: none;
+     background-color: #03DAC6;
+  height:30px;
+    color: rgba(1, 1, 1, 0.8);
+    font-size:15px;
+    border-radius: 25px; 
+     
+}
+
 nav a{
     margin-right: 30px;
 }
