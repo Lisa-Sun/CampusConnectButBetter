@@ -19,7 +19,6 @@ import lombok.ToString;
 @Entity
 @Table(name = "student_info")
 @ToString
-
 public class Student implements Serializable{
 
 	@Id

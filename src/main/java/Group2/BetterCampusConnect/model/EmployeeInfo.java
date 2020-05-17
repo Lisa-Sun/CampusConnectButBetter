@@ -1,5 +1,7 @@
 package Group2.BetterCampusConnect.model;
 
+import Group2.BetterCampusConnect.model.enumTypes.EmployeeType;
+import Group2.BetterCampusConnect.model.enumTypes.EmployeeStatus;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import javax.persistence.Column;
@@ -14,10 +16,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import Group2.BetterCampusConnect.model.enumTypes.EmployeeType;
-import Group2.BetterCampusConnect.model.enumTypes.EmployeeStatus;
-
 import java.util.Date;
 import lombok.Data;
 import lombok.ToString;

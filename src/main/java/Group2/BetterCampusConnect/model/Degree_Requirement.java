@@ -11,9 +11,7 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import org.hibernate.id.Assigned;
-
 import lombok.Data;
 import lombok.ToString;
 
