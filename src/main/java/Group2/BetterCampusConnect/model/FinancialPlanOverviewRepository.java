@@ -14,7 +14,7 @@ public interface FinancialPlanOverviewRepository extends CrudRepository<Financia
 	List<FinancialPlanOverview> findAll();
 	
 	@Query(
-		value = "SELECT * From financial_plan_overview",
+		value = "SELECT * FROM financial_plan_overview WHERE TABLE_NAME = 'financial_plan_overview'",
 		nativeQuery = true)
 	List<FinancialPlanOverview> search(String query);
 }
