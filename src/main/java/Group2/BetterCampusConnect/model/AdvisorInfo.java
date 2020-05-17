@@ -23,9 +23,6 @@ import lombok.ToString;
 @ToString
 
 public class AdvisorInfo extends EmployeeInfo{
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private Long id;
 	 @Column(name = "firstname")
 	 private String firstname;
 	 

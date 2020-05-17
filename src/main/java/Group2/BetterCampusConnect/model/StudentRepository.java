@@ -11,11 +11,11 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-	public interface StudentRepository extends CrudRepository<Student, String> {
-	    Student findByStudentId(String student_id); 
-	    
-	    @Override
-	  
-	    List<Student> findAll();
-	}
+public interface StudentRepository extends CrudRepository<Student, String> {
+    Student findByStudentId(String student_id); 
+    
+    @Override
+  
+    List<Student> findAll();
+}
 

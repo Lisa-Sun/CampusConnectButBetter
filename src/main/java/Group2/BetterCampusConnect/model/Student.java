@@ -21,9 +21,7 @@ import lombok.ToString;
 @ToString
 
 public class Student implements Serializable{
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private Long id;
+
 	@Id
 	 @Column(name = "student_id")
 	 private String studentId;

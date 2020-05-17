@@ -17,7 +17,6 @@ import lombok.ToString;
 @Entity
 @Table(name = "financial_plan_overview")
 @ToString
-
 public class FinancialPlanOverview implements Serializable {
 
 	@Id

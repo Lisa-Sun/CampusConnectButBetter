@@ -11,9 +11,9 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-	public interface AdvisorRepository extends CrudRepository<AdvisorInfo, Integer> {
-	    List<AdvisorInfo> findByEmployeeId(String employee_id);
-	    
-	    @Override
-	    List<AdvisorInfo> findAll();
-	}
+public interface AdvisorRepository extends CrudRepository<AdvisorInfo, Integer> {
+    List<AdvisorInfo> findByEmployeeId(String employee_id);
+    
+    @Override
+    List<AdvisorInfo> findAll();
+}

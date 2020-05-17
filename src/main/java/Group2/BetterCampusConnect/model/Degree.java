@@ -18,11 +18,8 @@ import lombok.ToString;
 @Entity
 @Table(name = "degree")
 @ToString
-
 public class Degree implements Serializable{
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private Long id;
+
 	@Id
 	 @Column(name = "degree_id")
 	 private int degreeId;

@@ -11,10 +11,10 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-	public interface Degree_Requirement_Repository extends CrudRepository<Degree_Requirement, Integer> {
-	    
-	    
-	    @Override
-	    List<Degree_Requirement> findAll();
-	}
+public interface Degree_Requirement_Repository extends CrudRepository<Degree_Requirement, Integer> {
+    
+    
+    @Override
+    List<Degree_Requirement> findAll();
+}
 
