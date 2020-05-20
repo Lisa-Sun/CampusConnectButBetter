@@ -39,8 +39,8 @@ public class FinanceController {
                 model.addAttribute("query", query);
                 return "No Results";
             }
-            model.addAttribute("financialPlan", results);
+            model.addAttribute("plans", results);
         }
-        return "finanicalPlanning";
+        return "financialPlanning";
     }
 }

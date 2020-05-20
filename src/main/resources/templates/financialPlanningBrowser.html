@@ -19,12 +19,12 @@
 			</div>
 			
 			
-			<!--<div id="content" style="margin:20px;margin-top:0px">
+			<div id="content" style="margin:20px;margin-top:0px">
 				<div style="margin-left:20px; width:50%">
 					<h3 style="float:left;color: #03DAC6">Loading...</h3>
 				</div>
-			</div>-->
-				<div class="table-responsive">
+			</div>
+				<!--<div class="table-responsive">
 					<div>
 						<h1 style="font-weight:bold;float:left">Plan Type</h1>
 					</div>
@@ -48,7 +48,7 @@
 							
 						</tbody>
 					</table>
-				</div>
+				</div>-->
     	</div>
     </div>
 
@@ -60,7 +60,7 @@
 <script type="text/javascript">
 
 function search(query){
-	$.get("financialPlanning?query="+query, function(data) {
+	$.get("FinancialPlanning?query="+query, function(data) {
 		$("#content").fadeOut("fast", function() {
  			$("#content").html(data);
  			$("#content").fadeIn("fast");
