@@ -12,10 +12,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StudentRepository extends CrudRepository<Student, String> {
-    Student findByStudentId(String student_id); 
+    Student findByStudentId(String studentId); 
     
-    @Override
-  
+    @Override  
     List<Student> findAll();
 }
 
