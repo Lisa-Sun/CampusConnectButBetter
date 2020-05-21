@@ -17,31 +17,19 @@
      <div >
     
 
-            <div class = "table-responsive "> <!-- th:each = "dates : ${dates}"> -->
+            <div class = "table-responsive " th:each = "date : ${ImpDates}"> 
                 <div class="box" style="margin:10px;float:left" >
                     
                     
                         <table class = "table" id = "month" style="margin-bottom:0px">
-                            <thead id = "eventDate" style = "color: #03DAC6" >  May  14 </thead>
-                                <div value></div>
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        
-                                    </tr>
-                                    <tbody >
-                                        <td>May 14</td>
-                                        <td>May 14</td>
-                                        <!--<td th:text="${course.id}"></td>
-                                        <td th:text="${course.name}"></td>
-                                        <td th:text="${course.location}"></td>
-                                        <td th:text ="${course.description}"></td>
-                                        <td href="/create"> -->
-                                            <!--<span class="glyphicon glyphicon-plus-sign">
-                                                
-                                            </span>+-->
-                                        </td>
-            
+                            <td th:text="${date.dateId}"></td>
+                            <tr>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>    
+                                    <!--<td th:text="${date.startDate}"></td>-->
+                                    <td th:text = "${#dates.monthName(date.startDate) + ' ' + #dates.day(date.startDate)}"></td>
+                                    <td th:text = "${#dates.monthName(date.endDate) + ' ' + #dates.day(date.endDate)}"></td>
                                     </tbody>
                                     
                                 </thead>
@@ -182,10 +170,12 @@
 
         //being very hacky here LS
         var currentMonth = "May";
-
         document.getElementById("currentDate").innerHTML = dt.toDateString();
 
+        var testText = document.getElementById("startDate").innerHTML;
+
         highLightDay(currentDay, currentMonth);
+        reformatDate(testText);
 
         function highLightDay(day, month)
         {   
@@ -215,6 +205,11 @@
                 //dateTable.style.bgcolor = "yellow";
                 //dateTable.style.bgcolor = "yellow";
             }
+        }
+
+        function reformatDate(oldDate)
+        {
+
         }
 
     </script>
