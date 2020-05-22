@@ -17,11 +17,12 @@
      <div >
     
 
-            <div class = "table-responsive "> 
+            <div class = "table-responsive " id = "displayCalender"> 
                 <div class="box" style="margin:10px;float:left" th:each = "date: ${ImpDates}" >
                     
                     
                         <table class = "table" id = "month" style="margin-bottom:0px">
+                            <tbody>
                             <td th:text="${date.dateId}"></td>
                             <tr>
                                 <th>Start Date</th>
@@ -30,7 +31,7 @@
                                     <!--<td th:text="${date.startDate}"></td>-->
                                     <td th:text = "${#dates.monthName(date.startDate) + ' ' + #dates.day(date.startDate)}"></td>
                                     <td th:text = "${#dates.monthName(date.endDate) + ' ' + #dates.day(date.endDate)}"></td>
-                                    </tbody>
+                            </tbody>
                                     
                                 </thead>
                             
@@ -41,9 +42,84 @@
               
         
     </div>
-
-
+<script type="text/javascript">
     
+    var dt = new Date();
+    var currentMonth = dt.getMonth() + 1;
+    var currentYear = dt.getFullYear();
+    var currentDay = dt.getDate();
+    var month = document.getElementById("month");
+
+    //being very hacky here LS
+    currentMonth = "May";
+    sortTable(currentDay, currentMonth, currentYear);
+    function sortTable(day, month, currentYear)
+     {
+        var currentDateString = "" + month + " " + day + " " + currentYear;
+        var currentDate = new Date(currentDateString);
+
+        var eventBucket = new Array();
+        var eventTables = document.querySelectorAll("[id^='month']");;
+
+        for (m = 0; m < eventTables.length; ++m)
+        {
+            eventBucket[m] = new Array();
+            eventBucket[m][0] = eventTables[m];
+        }
+
+        function compareThreeDates(dateCurrent)
+        {
+            return function(a, b)
+            {
+                var eventStartDateA = a[0].getElementsByTagName("td")[1].innerHTML;
+                var eventStartDateB = b[0].getElementsByTagName("td")[1].innerHTML;
+
+                var eventEndDateA = a[0].getElementsByTagName("td")[2].innerHTML;
+                var eventEndDateB = b[0].getElementsByTagName("td")[2].innerHTML;
+
+
+
+                var textStartDateA = eventStartDateA + " " + dateCurrent.getFullYear();
+                var textStartDateB = eventStartDateB + " " + dateCurrent.getFullYear();
+
+                var textEndDateA = eventEndDateA + " " + dateCurrent.getFullYear();
+                var textEndDateB = eventEndDateB + " " + dateCurrent.getFullYear();
+                //change the year if needed
+                
+                var dateEvent_AStart = new Date(textStartDateA);
+                var dateEvent_BStart = new Date(textStartDateB);
+
+                var dateEvent_AEnd = new Date(textEndDateA);
+                var dateEvent_BEnd = new Date(textEndDateB);
+                
+               
+                if(dateCurrent > dateEvent_AStart && dateCurrent > dateEvent_AEnd)
+                {
+                    alert("Event A: " + dateEvent_AStart);
+                    dateEvent_AStart.setFullYear(dateEvent_AStart.getFullYear() +1);
+                    dateEvent_AEnd.setFullYear(dateEvent_AStart.getFullYear())   
+                }
+                
+
+                if(dateCurrent > dateEvent_BStart && dateCurrent > dateEvent_BEnd)
+                {
+                    alert("Event B: "  + dateEvent_BStart);
+                    dateEvent_BStart.setFullYear(dateEvent_AStart.getFullYear() +1);
+                    dateEvent_BEnd.setFullYear(dateEvent_AStart.getFullYear())   
+                }
+                
+                
+
+                return -1;
+            }
+        }
+
+        
+        eventBucket.sort(compareThreeDates(currentDate));
+        
+
+ }
+</script> 
 
     <script type="text/javascript">
 
@@ -54,7 +130,7 @@
         var month = document.getElementById("month");
 
         //being very hacky here LS
-        var currentMonth = "May";
+        currentMonth = "May";
         document.getElementById("currentDate").innerHTML = dt.toDateString();
 
 
@@ -84,12 +160,9 @@
 
                 var currentDate = new Date(currentDateString);
 
-                if (dateEventStart.getTime() >= currentDate.getTime() && dateEventEnd.getTime() >= currentDate.getTime())
+                if (dateEventStart.getTime() <= currentDate.getTime() && dateEventEnd.getTime() >= currentDate.getTime())
                 {
 
-                    alert(dateEventStart);
-                    alert("Current date string");
-                    alert(currentDate);
                     break;
                 }
                 textDateStartElement = -2;
@@ -107,7 +180,5 @@
         }
         
     </script>
-   
-
 </body>
 </html>
