@@ -17,8 +17,8 @@
      <div >
     
 
-            <div class = "table-responsive " th:each = "date : ${ImpDates}"> 
-                <div class="box" style="margin:10px;float:left" >
+            <div class = "table-responsive "> 
+                <div class="box" style="margin:10px;float:left" th:each = "date: ${ImpDates}" >
                     
                     
                         <table class = "table" id = "month" style="margin-bottom:0px">
@@ -38,122 +38,7 @@
 
                 </div>
 
-                 <div class="box" style="margin:10px;float:left" >
-                    
-                        <table class = "table" id = "month" style="margin-bottom:0px">
-                            <thead id = "eventDate" style = "color: #03DAC6">  May  15 </thead>
-                            
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        
-                                    </tr>
-                                    <tbody >
-                                        <td>May 15</td>
-                                        <td>May 16</td>
-                                        <!--<td th:text="${course.id}"></td>
-                                        <td th:text="${course.name}"></td>
-                                        <td th:text="${course.location}"></td>
-                                        <td th:text ="${course.description}"></td>
-                                        <td href="/create"></td> -->
-                                            <!--<span class="glyphicon glyphicon-plus-sign">
-                                                
-                                            </span>+-->
-                                        
-                                    </tbody>
-                                    
-                                </thead>
-                            
-                        </table>
-                </div>
-
-                <div class="box" style="margin:10px;float:left" >
-                    
-                        <table class = "table" id = "month" style="margin-bottom:0px">
-                            <thead id = "eventDate" style = "color: #03DAC6">  May  16 </thead>
-                            
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        
-                                    </tr>
-                                    <tbody >
-                                        <td>May 16</td>
-                                        <td>May 16</td>
-                                        <!--<td th:text="${course.id}"></td>
-                                        <td th:text="${course.name}"></td>
-                                        <td th:text="${course.location}"></td>
-                                        <td th:text ="${course.description}"></td>
-                                        <td href="/create"></td> -->
-                                            <!--<span class="glyphicon glyphicon-plus-sign">
-                                                
-                                            </span>+-->
-                                        
-                                    </tbody>
-                                    
-                                </thead>
-                            
-                        </table>
-                </div>
-
-                <div class="box" style="margin:10px;float:left" >
-                    
-                        <table class = "table" id = "month" style="margin-bottom:0px">
-                            <thead id = "eventDate" style = "color: #03DAC6">  May  17 </thead>
-                            
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        
-                                    </tr>
-                                    <tbody >
-                                        <td>May 17</td>
-                                        <td>May 17</td>
-                                        <!--<td th:text="${course.id}"></td>
-                                        <td th:text="${course.name}"></td>
-                                        <td th:text="${course.location}"></td>
-                                        <td th:text ="${course.description}"></td>
-                                        <td href="/create"></td> -->
-                                            <!--<span class="glyphicon glyphicon-plus-sign">
-                                                
-                                            </span>+-->
-                                        
-                                    </tbody>
-                                    
-                                </thead>
-                            
-                        </table>
-                </div>
-
-                <div class="box" style="margin:10px;float:left" >
-                    
-                        <table class = "table" id = "month" style="margin-bottom:0px">
-                            <thead id = "eventDate" style = "color: #03DAC6">  May  18 </thead>
-                            
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        
-                                    </tr>
-                                    <tbody >
-                                        <td>May 18</td>
-                                        <td>May 18</td>
-                                        <!--<td th:text="${course.id}"></td>
-                                        <td th:text="${course.name}"></td>
-                                        <td th:text="${course.location}"></td>
-                                        <td th:text ="${course.description}"></td>
-                                        <td href="/create"></td> -->
-                                            <!--<span class="glyphicon glyphicon-plus-sign">
-                                                
-                                            </span>+-->
-                                        
-                                    </tbody>
-                                    
-                                </thead>
-                            
-                        </table>
-                </div>
-            </div>
+              
         
     </div>
 
@@ -172,10 +57,8 @@
         var currentMonth = "May";
         document.getElementById("currentDate").innerHTML = dt.toDateString();
 
-        var testText = document.getElementById("startDate").innerHTML;
 
         highLightDay(currentDay, currentMonth);
-        reformatDate(testText);
 
         function highLightDay(day, month)
         {   
@@ -185,7 +68,9 @@
             textDateElement = -2;
             for (i = 0; i < eventTables.length; ++i)
             {
-                textDateElement = eventTables[i].getElementsByTagName("td")[0];
+                alert(eventTables[i].getElementsByTagName("td")[1].innerHTML);
+                textDateElement = eventTables[i].getElementsByTagName("td")[1];
+
                 textTemp = textDateElement.innerHTML;
 
                 if (textTemp == currentDateString)
@@ -206,13 +91,9 @@
                 //dateTable.style.bgcolor = "yellow";
             }
         }
-
-        function reformatDate(oldDate)
-        {
-
-        }
-
+        
     </script>
+   
 
 </body>
 </html>
