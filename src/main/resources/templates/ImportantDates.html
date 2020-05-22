@@ -58,34 +58,48 @@
         document.getElementById("currentDate").innerHTML = dt.toDateString();
 
 
-        highLightDay(currentDay, currentMonth);
+        highLightDay(currentDay, currentMonth, currentYear);
 
-        function highLightDay(day, month)
+        function highLightDay(day, month, currentYear)
         {   
-            var currentDateString = "" + month + " " + day;
+            var currentDateString = "" + month + " " + day + " " + currentYear;
             var eventTables = document.querySelectorAll("[id^='month']");
-            var textDate, textDateElement, i;
-            textDateElement = -2;
+            var textDate, textDateStartElement, textDateEndElement, i, textStart, textEnd;
+            textDateStartElement = -2;
             for (i = 0; i < eventTables.length; ++i)
             {
-                alert(eventTables[i].getElementsByTagName("td")[1].innerHTML);
-                textDateElement = eventTables[i].getElementsByTagName("td")[1];
+                textDateStartElement = eventTables[i].getElementsByTagName("td")[1];
+                textDateEndElement = eventTables[i].getElementsByTagName("td")[2];
 
-                textTemp = textDateElement.innerHTML;
 
-                if (textTemp == currentDateString)
+                textStart = textDateStartElement.innerHTML;
+                textStart = textStart + " " + currentYear;
+
+                textEnd = textDateEndElement.innerHTML;
+                textEnd = textEnd + " " + currentYear;
+
+
+                var dateEventStart = new Date(textStart);
+                var dateEventEnd = new Date(textEnd);
+
+                var currentDate = new Date(currentDateString);
+
+                if (dateEventStart.getTime() >= currentDate.getTime() && dateEventEnd.getTime() >= currentDate.getTime())
                 {
 
+                    alert(dateEventStart);
+                    alert("Current date string");
+                    alert(currentDate);
                     break;
                 }
-                textDateElement = -2;
+                textDateStartElement = -2;
 
             }
 
-            if(textDateElement != 2)
+            if(textDateStartElement != 2)
             {
                 //alert(textTemp);
-                var dateTable = textDateElement.parentElement.parentElement.parentElement;//if you get tagName you can get table
+                var dateTable = textDateStartElement.parentElement.parentElement.parentElement;//if you get tagName you can get table
                 dateTable.setAttribute("style", "background-color:#03DAC6");
                 //dateTable.style.bgcolor = "yellow";
                 //dateTable.style.bgcolor = "yellow";
