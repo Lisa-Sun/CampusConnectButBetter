@@ -15,9 +15,7 @@
     <p id = "currentDate"></p>
 
      <div >
-    
-
-            <div class = "table-responsive " id = "displayCalender"> 
+            <div class = "table-responsive " > 
                 <div class="box" style="margin:10px;float:left" th:each = "date: ${ImpDates}" >
                     
                     
@@ -42,87 +40,105 @@
               
         
     </div>
-<script type="text/javascript">
-    
-    var dt = new Date();
-    var currentMonth = dt.getMonth() + 1;
-    var currentYear = dt.getFullYear();
-    var currentDay = dt.getDate();
-    var month = document.getElementById("month");
 
-    //being very hacky here LS
-    currentMonth = "May";
-    sortTable(currentDay, currentMonth, currentYear);
-    function sortTable(day, month, currentYear)
-     {
-        var currentDateString = "" + month + " " + day + " " + currentYear;
+        <script type="text/javascript">
+    
+        var dt = new Date();
+        var currentMonth = dt.getMonth() + 1;
+        var currentYear = dt.getFullYear();
+        var currentDay = dt.getDate();
+        var month = document.getElementById("month");
+
+        //being very hacky here LS
+        currentMonth = "May";
+        var currentDateString = "" + currentMonth + " " + currentDay + " " + currentYear;
         var currentDate = new Date(currentDateString);
 
-        var eventBucket = new Array();
-        var eventTables = document.querySelectorAll("[id^='month']");;
+        var unsortedEventTables = document.querySelectorAll("[id^='month']");
 
-        for (m = 0; m < eventTables.length; ++m)
+        var sortedEventTables = sortTable(currentDate,currentYear, unsortedEventTables);
+
+
+        for(m = 0; m < sortedEventTables.length; m++)
         {
-            eventBucket[m] = new Array();
-            eventBucket[m][0] = eventTables[m];
+            
+
+            unsortedEventTables[m].innerHTML = sortedEventTables[m].innerHTML;            
+
         }
+        
 
-        function compareThreeDates(dateCurrent)
-        {
-            return function(a, b)
+        function sortTable(currentDate, currentYear, unsortedEventTables)
+         {
+            var tablesList = document.getElementsByClassName("box");
+            var eventBucket = [];
+
+           //eventBucket = Array.prototype.slice.call(tablesList);
+            for(m = 0; m < tablesList.length; m++)
             {
-                var eventStartDateA = a[0].getElementsByTagName("td")[1].innerHTML;
-                var eventStartDateB = b[0].getElementsByTagName("td")[1].innerHTML;
-
-                var eventEndDateA = a[0].getElementsByTagName("td")[2].innerHTML;
-                var eventEndDateB = b[0].getElementsByTagName("td")[2].innerHTML;
-
-
-
-                var textStartDateA = eventStartDateA + " " + dateCurrent.getFullYear();
-                var textStartDateB = eventStartDateB + " " + dateCurrent.getFullYear();
-
-                var textEndDateA = eventEndDateA + " " + dateCurrent.getFullYear();
-                var textEndDateB = eventEndDateB + " " + dateCurrent.getFullYear();
-                //change the year if needed
-                
-                var dateEvent_AStart = new Date(textStartDateA);
-                var dateEvent_BStart = new Date(textStartDateB);
-
-                var dateEvent_AEnd = new Date(textEndDateA);
-                var dateEvent_BEnd = new Date(textEndDateB);
-                
-               
-                if(dateCurrent > dateEvent_AStart && dateCurrent > dateEvent_AEnd)
-                {
-                    alert("Event A: " + dateEvent_AStart);
-                    dateEvent_AStart.setFullYear(dateEvent_AStart.getFullYear() +1);
-                    dateEvent_AEnd.setFullYear(dateEvent_AStart.getFullYear())   
-                }
-                
-
-                if(dateCurrent > dateEvent_BStart && dateCurrent > dateEvent_BEnd)
-                {
-                    alert("Event B: "  + dateEvent_BStart);
-                    dateEvent_BStart.setFullYear(dateEvent_AStart.getFullYear() +1);
-                    dateEvent_BEnd.setFullYear(dateEvent_AStart.getFullYear())   
-                }
-                
-                
-
-                return -1;
+                var tempTag = document.createElement("table");
+                tempTag.innerHTML = tablesList[m].innerHTML;
+                eventBucket[m] = tempTag;
             }
+
+        
+            function compareThreeDates(dateCurrent)
+            {
+                return function(a, b)
+                {  
+                    var eventStartDateA = a.getElementsByTagName("td")[1].innerHTML;
+                    var eventStartDateB = b.getElementsByTagName("td")[1].innerHTML;
+
+                    var eventEndDateA = a.getElementsByTagName("td")[2].innerHTML;
+                    var eventEndDateB = b.getElementsByTagName("td")[2].innerHTML;
+                    
+                    var textStartDateA = eventStartDateA + " " + dateCurrent.getFullYear();
+                    var textStartDateB = eventStartDateB + " " + dateCurrent.getFullYear();
+
+                    var textEndDateA = eventEndDateA + " " + dateCurrent.getFullYear();
+                    var textEndDateB = eventEndDateB + " " + dateCurrent.getFullYear();
+                    //change the year if needed
+                    
+                    var dateEvent_AStart = new Date(textStartDateA);
+                    var dateEvent_BStart = new Date(textStartDateB);
+
+                    var dateEvent_AEnd = new Date(textEndDateA);
+                    var dateEvent_BEnd = new Date(textEndDateB);
+                    
+                   
+                    //need to reset the years for the comparison to wrk
+                    
+                    if(dateCurrent > dateEvent_AStart && dateCurrent > dateEvent_AEnd)
+                    {
+                        //alert("Event A: " + dateEvent_AStart);
+                        dateEvent_AStart.setFullYear(dateCurrent.getFullYear() +1);
+                        dateEvent_AEnd.setFullYear(dateEvent_AStart.getFullYear())   
+                    }
+                    
+
+                    if(dateCurrent > dateEvent_BStart && dateCurrent > dateEvent_BEnd)
+                    {
+                        //alert("Event B: "  + dateEvent_BStart);
+                        dateEvent_BStart.setFullYear(dateCurrent.getFullYear() +1);
+                        dateEvent_BEnd.setFullYear(dateEvent_AStart.getFullYear()); 
+                    }
+                    
+                    return dateEvent_AStart -dateEvent_BStart;
+                }
+            }
+
+            //alert(eventBucket[0]);
+            //alert(unsortedEventTables[0].getElementsByTagName("td")[1].innerHTML);
+            eventBucket.sort(compareThreeDates(currentDate));
+
+            //unsortedEventTables.sort(compareThreeDates(currentDate));
+
+            return eventBucket;
         }
 
-        
-        eventBucket.sort(compareThreeDates(currentDate));
-        
-
- }
-</script> 
+    </script> 
 
     <script type="text/javascript">
-
         var dt = new Date();
         var currentMonth = dt.getMonth() + 1;
         var currentYear = dt.getFullYear();
@@ -174,11 +190,11 @@
                 //alert(textTemp);
                 var dateTable = textDateStartElement.parentElement.parentElement.parentElement;//if you get tagName you can get table
                 dateTable.setAttribute("style", "background-color:#03DAC6");
-                //dateTable.style.bgcolor = "yellow";
-                //dateTable.style.bgcolor = "yellow";
             }
         }
         
     </script>
+
+
 </body>
 </html>
