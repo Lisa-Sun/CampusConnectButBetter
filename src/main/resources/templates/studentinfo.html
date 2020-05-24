@@ -10,7 +10,18 @@
 	  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="static/style.css">
 </head>
-<body>
+<body onload="DisplayData()">
+<script>
+function DisplayData() {
+  var fname = document.getElementById('firstName').value;
+  var lname = document.getElementById('lastName').value;
+  var gpa = document.getElementById('gpa').value;
+  var dlevel = document.getElementById('degreelevel').value;
+  document.getElementById('DisplayName').innerHTML = fname+' '+lname;
+  document.getElementById('DisplayGPA').innerHTML = gpa;
+  document.getElementById('DisplayLevel').innerHTML = dlevel;
+}
+</script>
    <div class="container body-content">
     <div>
         <div class="row">
@@ -19,6 +30,7 @@
             </div>
             <div class="col-sm-9">
             
+              
              <div>     
         </div>   
             
@@ -29,38 +41,40 @@
                     <div class="text-center">
                         <img src="imgs/DIBS.jpg" class="img-circle img-thumbnail">
                     </div>
-                    <br>
-                     <center><h1>
-                     <span th:text="${students.firstName}+${students.lastName}"></span></h1></center>
+                <center><h1></h1></center>
+                     <center><h1 id="DisplayName">
+                     </h1></center>
                     <div class="panel panel-default">
                         <div class="panel-heading"><b>Degree(s)</b> </div>
                         <ul class="list-group">
-                            <li class="list-group-item text-right"><span class="pull-left"><strong>${major} : ${degree_level} </strong></span><b>Major</b></li>
-                            <li class="list-group-item text-right"><span class="pull-left"><strong>${minor} : ${degree_level}</strong></span> <b>Minor</b></li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong id="DisplayLevel"></strong></span><b>Major</b></li>
+                          
                         </ul>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading"><b>Accumulate GPA</b></div>
-                        <center> <H1><span th:text="${students.gpa}"></span></H1></center>
+                        <center> <H1><span id="DisplayGPA"></span></H1></center>
                     </div>
                 </div>
                 <div class="col-sm-9">
                 <div class="col-md-2 "></div>
                     <div class="col-md-8 box">
-                        <form class="form" th:object="${students}" action="#" method="post">
-                            <h4><b>Student ID:</b> </h4>
-                            <h4> </h4>
-                            
-                            <h4 style="text-style:bold"><b>First name:</b></h4>
-                            <input type="text" class="text" th:field="*{firstName}" placeholder="First name" th:value="*{firstName}"> 
+                     <h4><b>Student ID:</b> </h4>
+                        <form th:object="${studentVar}" action="#" method="post">
+                            <h4><b>First name:<b> </h4>
+                             <input type="text" class="text" th:field="*{firstName}" placeholder="First name"> 
                             <h4><b>Last name:<b></h4>
-                            <input type="text" class="text" th:field="*{lastName}" placeholder="Last name" th:value="*{lastName}">
+                            <input type="text" class="text" th:field="*{lastName}" placeholder="Last name">
                             <h4><b>Email:<b></h4>
-                            <input type="email" class="text" th:field="*{email}" placeholder="your@email.com" th:value="*{email}">
+                            <input type="email" class="text" th:field="*{email}" placeholder="your@email.com">
                             <h4><b>Password:<b></h4>
-                            <input type="password" class="text" th:field="*{pwd}" placeholder="password" th:value="*{pwd}">
+                            <input type="password" class="text" th:field="*{pwd}" placeholder="password">
                             <h4><b>Repeat Password:<b></h4>
                             <input type="password" class="text" placeholder="password2">
+                            <input type="hidden" class="text" th:field="*{gpa}">
+                            <input type="hidden" class="text" th:field="*{major}">
+                            <input type="hidden" class="text" th:field="*{minor}">
+                            <input type="hidden" class="text" th:field="*{degreelevel}">
                             <div class="col-xs-12">
                                 <br>
                                 <input type="button" class="boxbutton" value="Save" style="width:100%; margin-right:10px">

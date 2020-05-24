@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,13 +20,26 @@ public class StudentInfoController {
 	public StudentInfoController() {}
 	
 	
+//    @GetMapping("/studentinfo")
+//    public String showAll(Model model) {
+//        Iterable<Student> airports = repo.findAll();
+//        model.addAttribute("airports", airports);
+//
+//        return "studentinfo";
+//    } 
+//	
     @GetMapping("/studentinfo")
     public String getStudentinfo(Model model, @RequestParam String id) {
     	Student students = repo.findByStudentId(id);
-    	model.addAttribute("students",students);
-        return "studentinfo";
+    	model.addAttribute("studentVar",students);
+        return "/studentinfo";
     }
     
-
+    @PostMapping("/studentinfo")
+    public String updateUser(@RequestParam String id,@ModelAttribute("student") Student stu) {
+                 
+        repo.save(stu);
+        return "/studentinfo";
+    }
 
 }	
