@@ -60,7 +60,7 @@ function DisplayData() {
                 <div class="col-md-2 "></div>
                     <div class="col-md-8 box">
                      <h4><b>Student ID:</b> </h4>
-                        <form th:object="${studentVar}" action="#" method="post">
+                        <form th:object="${studentVar}" th:action="@{/studentinfo}" method="post" action ="#">
                             <h4><b>First name:<b> </h4>
                              <input type="text" class="text" th:field="*{firstName}" placeholder="First name"> 
                             <h4><b>Last name:<b></h4>
@@ -71,13 +71,15 @@ function DisplayData() {
                             <input type="password" class="text" th:field="*{pwd}" placeholder="password">
                             <h4><b>Repeat Password:<b></h4>
                             <input type="password" class="text" placeholder="password2">
+                             <input type="hidden" class="text" th:field="*{studentId}">
                             <input type="hidden" class="text" th:field="*{gpa}">
                             <input type="hidden" class="text" th:field="*{major}">
                             <input type="hidden" class="text" th:field="*{minor}">
                             <input type="hidden" class="text" th:field="*{degreelevel}">
                             <div class="col-xs-12">
                                 <br>
-                                <input type="button" class="boxbutton" value="Save" style="width:100%; margin-right:10px">
+                                <button type="submit">save</button>
+                                
                             </div>
                         </form>
                     </div>
