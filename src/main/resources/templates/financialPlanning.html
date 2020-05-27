@@ -2,10 +2,10 @@
 <body>
     <!--<h1 class="display-4"><p th:text="'This is plan, ' + ${plan} + '!'"></p></h1>-->
     <div layout:fragment="content" class="row">
-        <div class="table-responsive" th:each="plans : ${plan}">
+        <div class="table-responsive" th:each="plan : ${plans}">
             <div>
-                <h1 style="font-weight:bold;float:left" th:text ="${plan.plan_type} + '&nbsp;'"></h1> 
-	    		<h1 style=" float:left; color: #03DAC6" th:text ="${plan.plan_amount}"></h1>
+                <h1 style="font-weight:bold;float:left" th:text ="${plan.planType} + '&nbsp;'"></h1> 
+	    		<h1 style=" float:left; color: #03DAC6" th:text ="${plan.planAmount}"></h1>
             </div>
             
             <table class="table" id="financial-table" style="margin-bottom:0px">

@@ -21,17 +21,17 @@ public class FinancialPlanOverview implements Serializable {
 
 	@Id
 	@Column(name = "plan_id")
-	private String planId;
+	public String planId;
 	
 	@Column(name = "plan_type")
-	private String planType;
+	public String planType;
 	
 	@Column(name = "plan_amount")
-	private int planAmount;
+	public int planAmount;
 	
 	@Column(name = "num_recievers")
-	private int numRecievers;
+	public int numRecievers;
 	
 	@Column(name = "more_info_link")
-	private String moreInfoLink;
+	public String moreInfoLink;
 }
