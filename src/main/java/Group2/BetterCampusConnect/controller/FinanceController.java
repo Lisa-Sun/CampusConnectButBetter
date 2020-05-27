@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FinanceController {
 
     @Autowired
-    FinancialPlanOverviewRepository FinancialPlanOverview;
+    FinancialPlanOverviewRepository FinancialPlanOverviewRepo;
 
 
     @RequestMapping("/financialPlanningBrowser")
@@ -31,10 +31,10 @@ public class FinanceController {
     public String planSearch(@RequestParam(name = "query", required = false, defaultValue = "") String query, Model model)
     {
         if (query.equals("")) {
-            model.addAttribute("plans", FinancialPlanOverview.findAll());
+            model.addAttribute("plans", FinancialPlanOverviewRepo.findAll());
         }
         else {
-            List<FinancialPlanOverview> results = FinancialPlanOverview.findAll();
+            List<FinancialPlanOverview> results = (List<FinancialPlanOverview>)FinancialPlanOverviewRepo.search(query);
             if (results.size() == 0) {
                 model.addAttribute("query", query);
                 return "No Results";
