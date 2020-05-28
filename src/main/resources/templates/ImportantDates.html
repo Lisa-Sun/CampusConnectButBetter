@@ -51,7 +51,22 @@
 
         //being very hacky here LS
         currentMonth = "May";
-        var currentDateString = "" + currentMonth + " " + currentDay + " " + currentYear;
+
+
+    </script> 
+
+    <script type="text/javascript">
+        var dt = new Date();
+        var currentMonth = dt.getMonth() + 1;
+        var currentYear = dt.getFullYear();
+        var currentDay = dt.getDate();
+        var month = document.getElementById("month");
+
+        //being very hacky here LS
+        currentMonth = "May";
+        document.getElementById("currentDate").innerHTML = dt.toDateString();
+
+                var currentDateString = "" + currentMonth + " " + currentDay + " " + currentYear;
         var currentDate = new Date(currentDateString);
 
         var unsortedEventTables = document.querySelectorAll("[id^='month']");
@@ -66,6 +81,9 @@
             unsortedEventTables[m].innerHTML = sortedEventTables[m].innerHTML;            
 
         }
+
+        highLightDay(currentDay, currentMonth, currentYear);
+
         
 
         function sortTable(currentDate, currentYear, unsortedEventTables)
@@ -136,21 +154,6 @@
             return eventBucket;
         }
 
-    </script> 
-
-    <script type="text/javascript">
-        var dt = new Date();
-        var currentMonth = dt.getMonth() + 1;
-        var currentYear = dt.getFullYear();
-        var currentDay = dt.getDate();
-        var month = document.getElementById("month");
-
-        //being very hacky here LS
-        currentMonth = "May";
-        document.getElementById("currentDate").innerHTML = dt.toDateString();
-
-
-        highLightDay(currentDay, currentMonth, currentYear);
 
         function highLightDay(day, month, currentYear)
         {   
@@ -176,21 +179,26 @@
 
                 var currentDate = new Date(currentDateString);
 
+                 //need to reset the years for the comparison to wrk
+
+                if(currentDate > dateEventStart && currentDate > dateEventEnd)
+                {
+                    dateEventStart.setFullYear(currentDate.getFullYear() +1);
+                    dateEventEnd.setFullYear(dateEventStart.getFullYear())   
+                }
+                    
+
                 if (dateEventStart.getTime() <= currentDate.getTime() && dateEventEnd.getTime() >= currentDate.getTime())
+                //if(dateEventEnd >= curretnDate && dateEventStart <= curretnDate)
                 {
 
-                    break;
+                    var dateTable = textDateStartElement.parentElement.parentElement.parentElement;//if you get tagName you can get table
+                    dateTable.setAttribute("style", "background-color:#03DAC6");
                 }
                 textDateStartElement = -2;
 
             }
 
-            if(textDateStartElement != 2)
-            {
-                //alert(textTemp);
-                var dateTable = textDateStartElement.parentElement.parentElement.parentElement;//if you get tagName you can get table
-                dateTable.setAttribute("style", "background-color:#03DAC6");
-            }
         }
         
     </script>
