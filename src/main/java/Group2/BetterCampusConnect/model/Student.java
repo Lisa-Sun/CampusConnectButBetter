@@ -1,10 +1,15 @@
 package Group2.BetterCampusConnect.model;
+ 
+import Group2.BetterCampusConnect.model.Schedule;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,11 +18,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 
 @Data
 @Entity
 @Table(name = "student_info")
 @ToString
+@TypeDefs({
+    @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
+})
+
 public class Student implements Serializable {
 
 	@Id
@@ -56,6 +69,11 @@ public class Student implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "last_name_first_two", referencedColumnName = "lastname_student_section_id")
 	private AdvisorInfo lastNameFirstTwo;
+	
+	@Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
+	@Basic(fetch = FetchType.LAZY)
+	private Schedule schedule;
 
 	public void setfirstName(String firstName) {
 		this.firstName = firstName;
@@ -127,4 +145,6 @@ public class Student implements Serializable {
 	public String getdegreelevel() {
 		return degreelevel;
 	}
+
+	
 }
