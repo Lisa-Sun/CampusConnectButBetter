@@ -12,8 +12,7 @@ INSERT INTO student_info
 	Major,
 	Minor,
 	degree_level,
-	last_name_first_two,
-	schedule
+	last_name_first_two
 	)
 VALUES
 	('1234abcd',
@@ -26,6 +25,5 @@ VALUES
 	5,
 	1,
 	'Undergraduate',
-	'SM',
-	'{"monday": "d;", "tuesday": "d", "wednesday": "fdfs3", "thursday": "[]", "friday": "[]"}'
+	'SM'
 	);
