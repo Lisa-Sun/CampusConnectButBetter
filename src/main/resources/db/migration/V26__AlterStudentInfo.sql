@@ -33,7 +33,7 @@ VALUES
 	'Data Science',
 	'Undergraduate',
 	'SM',
-	'{"monday": "d;", "tuesday": "d", "wednesday": "fdfs3", "thursday": "[]", "friday": "[]"}'
+	'{"monday": ["f33f32"], "tuesday": ["432fh8"], "wednesday": [], "thursday": [], "friday": []}'
 	);
 
 INSERT INTO student_info
