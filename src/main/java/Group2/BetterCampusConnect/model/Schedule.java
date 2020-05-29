@@ -12,11 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Schedule implements Serializable {
-	private String monday;
-	private String tuesday;
-    private String wednesday;
-    private String thursday;
-    private String friday;
+	private List<String> monday;
+	private List<String> tuesday;
+    private List<String> wednesday;
+    private List<String> thursday;
+    private List<String> friday;
 
 
 }
