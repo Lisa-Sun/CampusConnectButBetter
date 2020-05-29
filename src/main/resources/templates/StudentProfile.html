@@ -14,7 +14,7 @@
 
 <div class="container body-content">
 <div class="jumbotron" style="background-color: #03DAC6;">
-    <h1>Welcome back, ${name}</h1>
+    <h1>Welcome back, <span th:text="${Student.getfirstName()}"></span></h1>
     <p>Learn, More, Better.</p>
 </div>
 
@@ -26,7 +26,7 @@
         <div class="thumbnail">
             <a href="#" class="thumbnail" style="color:black">
               Major:
-                <center><h1>Computer Science</h1></center>         
+                <center><h1><span th:text="${Student.getmajor()}"></span></center>         
                           
             </a>
             <div>
@@ -39,7 +39,7 @@
         <div class="thumbnail">
             <a href="/studentinfo?id=1234abcd" class="thumbnail" style="color:black">
                Your preffered name: 
-               <center><h1>John Doe</h1></center>
+               <center><h1><span th:text="${Student.getfirstName()}+${Student.getlastName()}"></span></h1></center>
             </a>
             <div>
                 <h3><span style="color:#03DAC6" class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Student Information</h3>
@@ -52,7 +52,7 @@
         <div class="thumbnail">
             <a href="#" class="thumbnail" style="color:black">
                You owe: 
-               <center><h1>$ 12,345</h1></center>
+               <center><h1><span th:text="${Student.getaccountbalance()}"></span></h1></h1></center>
             </a>
             <div>
                 <h3><span style="color:#03DAC6" class=" glyphicon glyphicon-credit-card" aria-hidden="true"></span>&nbsp;Account Balance</h3>

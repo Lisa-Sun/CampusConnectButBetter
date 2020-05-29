@@ -16,10 +16,12 @@ function DisplayData() {
   var fname = document.getElementById('firstName').value;
   var lname = document.getElementById('lastName').value;
   var gpa = document.getElementById('gpa').value;
-  var dlevel = document.getElementById('degreelevel').value;
+  var major = document.getElementById('major').value;
+  var minor = document.getElementById('minor').value;
   document.getElementById('DisplayName').innerHTML = fname+' '+lname;
   document.getElementById('DisplayGPA').innerHTML = gpa;
-  document.getElementById('DisplayLevel').innerHTML = dlevel;
+  document.getElementById('DisplayMajor').innerHTML = major;
+  document.getElementById('DisplayMinor').innerHTML = minor;
 }
 </script>
    <div class="container body-content">
@@ -47,7 +49,8 @@ function DisplayData() {
                     <div class="panel panel-default">
                         <div class="panel-heading"><b>Degree(s)</b> </div>
                         <ul class="list-group">
-                            <li class="list-group-item text-right"><span class="pull-left"><strong id="DisplayLevel"></strong></span><b>Major</b></li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong id="DisplayMajor"></strong></span><b>Major</b></li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong id="DisplayMinor"></strong></span><b>Minor</b></li>
                           
                         </ul>
                     </div>

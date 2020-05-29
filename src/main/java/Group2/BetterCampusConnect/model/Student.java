@@ -55,13 +55,12 @@ public class Student implements Serializable {
 	@Column(name = "Account_Balance")
 	private BigDecimal accountbalance;
 
-	/* degree_id */
 	@Column(name = "Major")
-	private int major;
+	private String major;
 
 	/* degree_id */
 	@Column(name = "Minor")
-	private int minor;
+	private String minor;
 
 	@Column(name = "Degree_level")
 	private String degreelevel;
@@ -123,19 +122,19 @@ public class Student implements Serializable {
 		return gpa;
 	}
 
-	public void setmajor(int major) {
+	public void setmajor(String major) {
 		this.major = major;
 	}
 
-	public int getmajor() {
+	public String getmajor() {
 		return major;
 	}
 
-	public void setminor(int minor) {
+	public void setminor(String minor) {
 		this.minor = minor;
 	}
 
-	public int getminor() {
+	public String getminor() {
 		return minor;
 	}
 	public void setdegreelevel(String degreelevel) {
@@ -145,6 +144,12 @@ public class Student implements Serializable {
 	public String getdegreelevel() {
 		return degreelevel;
 	}
+	public void setaccountbalance(BigDecimal accountbalance) {
+		this.accountbalance = accountbalance;
+	}
 
+	public BigDecimal getaccountbalance() {
+		return accountbalance;
+	}
 	
 }
