@@ -17,5 +17,7 @@ public class Schedule implements Serializable {
     private String wednesday;
     private String thursday;
     private String friday;
+
+
 }
 
