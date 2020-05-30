@@ -1,6 +1,8 @@
 package Group2.BetterCampusConnect.controller;
 
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,4 +36,20 @@ public class StudentInfoController {
         return "redirect:/studentinfo?id="+stu.getstudentId();
     }
 
+    @GetMapping("/accountbalance")
+    public String getaccountbalance(Model model, @RequestParam String id) {
+    	Student students = repo.findByStudentId(id);
+    	model.addAttribute("studentVar",students);
+        return "/accountbalance";
+    }
+    
+    @PostMapping(path="/accountbalance")
+    public String updateAccountBalance(BigDecimal amount,String id) {
+    	Student students = repo.findByStudentId(id);
+    	BigDecimal oldAmount = students.getaccountbalance();
+    	BigDecimal amountPaid = amount;
+    	students.setaccountbalance(oldAmount.subtract(amountPaid));
+    	repo.save(students);
+        return "redirect:/accountbalance?id="+id;
+    }
 }	

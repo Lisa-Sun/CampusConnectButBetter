@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Account Balance</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        
+    </div>
+    <div class="col-sm-6 col-md-4 box">
+     <h1>Payment</h1>
+           
+                     <h4><b>Student ID: #<span id="DisplayID" th:text="${studentVar.getstudentId()}"></span></b> </h4>
+                        <form th:action="@{/accountbalance}" method="post" action ="#">
+                            <h4><b>You owe: USD $<span id="DisplayID" th:text="${studentVar.getaccountbalance()}"></span><b> </h4>
+                            <h4><b>Amount you pay:<b></h4>
+                            $<input type="text" class="text" placeholder="Amount" name="amount">
+                              <input type="hidden" class="text" name="id" th:value="${studentVar.getstudentId()}">
+                            <div class="col-xs-12">
+                                <br>
+                               <input type="submit" class="boxbutton" value="PAY" style="width:100%; margin-right:10px; margin-bottom: 10px">
+                            </div>
+                  
+      </form>
+      <center><a href="/StudentProfile?id=1234abcd"  style="width:100%; margin-top:10px">Back to Profile</a></center>
+    </div>
+    <div class="col-sm-6 col-md-4">
+       
+    </div>
+</div>
+</div>
+        </body>
+</html>
+

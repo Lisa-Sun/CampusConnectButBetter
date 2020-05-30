@@ -10,19 +10,9 @@
 	  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="static/style.css">
 </head>
-<body onload="DisplayData()">
+<body>
 <script>
-function DisplayData() {
-  var fname = document.getElementById('firstName').value;
-  var lname = document.getElementById('lastName').value;
-  var gpa = document.getElementById('gpa').value;
-  var major = document.getElementById('major').value;
-  var minor = document.getElementById('minor').value;
-  document.getElementById('DisplayName').innerHTML = fname+' '+lname;
-  document.getElementById('DisplayGPA').innerHTML = gpa;
-  document.getElementById('DisplayMajor').innerHTML = major;
-  document.getElementById('DisplayMinor').innerHTML = minor;
-}
+
 </script>
    <div class="container body-content">
     <div>
@@ -44,25 +34,25 @@ function DisplayData() {
                         <img src="imgs/DIBS.jpg" class="img-circle img-thumbnail">
                     </div>
                 <center><h1></h1></center>
-                     <center><h1 id="DisplayName">
+                     <center><h1 th:text="${studentVar.getfirstName()+' '+ studentVar.getlastName()}">
                      </h1></center>
                     <div class="panel panel-default">
                         <div class="panel-heading"><b>Degree(s)</b> </div>
                         <ul class="list-group">
-                            <li class="list-group-item text-right"><span class="pull-left"><strong id="DisplayMajor"></strong></span><b>Major</b></li>
-                            <li class="list-group-item text-right"><span class="pull-left"><strong id="DisplayMinor"></strong></span><b>Minor</b></li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong th:text="${studentVar.getmajor()}"></strong></span><b>Major</b></li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong th:text="${studentVar.getminor()}"></strong></span><b>Minor</b></li>
                           
                         </ul>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading"><b>Accumulate GPA</b></div>
-                        <center> <H1><span id="DisplayGPA"></span></H1></center>
+                        <center> <H1><span th:text="${studentVar.getgpa()}"></span></H1></center>
                     </div>
                 </div>
                 <div class="col-sm-9">
                 <div class="col-md-2 "></div>
                     <div class="col-md-8 box">
-                     <h4><b>Student ID:</b> </h4>
+                     <h4><b>Student ID: #<span id="DisplayID" th:text="${studentVar.getstudentId()}"></span></b> </h4>
                         <form th:object="${studentVar}" th:action="@{/studentinfo}" method="post" action ="#">
                             <h4><b>First name:<b> </h4>
                              <input type="text" class="text" th:field="*{firstName}" placeholder="First name"> 
@@ -79,12 +69,14 @@ function DisplayData() {
                             <input type="hidden" class="text" th:field="*{major}">
                             <input type="hidden" class="text" th:field="*{minor}">
                             <input type="hidden" class="text" th:field="*{degreelevel}">
+                            <input type="hidden" class="text" th:field="*{accountbalance}">
                             <div class="col-xs-12">
                                 <br>
-                                <button type="submit">save</button>
-                                
+                                 <input type="submit" class="boxbutton" value="Save" style="width:100%; margin-right:10px;margin-bottom:10px ">
                             </div>
                         </form>
+                        <center><a href="/StudentProfile?id=1234abcd"  style="width:100%; margin-top:10px">Back to Profile</a></center>
+                       
                     </div>
                 </div>
             </div>
