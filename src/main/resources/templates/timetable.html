@@ -25,7 +25,7 @@
 				<th id = "friday" scope = "col">Friday</th>
 
 			</thead>
-			<tbody>
+			<tbody id = "tbodyStudenSchedule">
 				<tr>
 					<th scope = "row">8:00 AM</th>
 					<td th:utext=
@@ -254,5 +254,25 @@
 			</tbody>
 		</table>
 		
+		<script type="text/javascript">
+			highLightOccupied();
+			function highLightOccupied(){
+				var rowList = document.getElementById("tbodyStudenSchedule").children;
+				for (var i = 0; i < rowList.length; i++)
+				{	
+					var colRowList = rowList[i].children;
+					for(var n = 1; n < colRowList.length; n++)
+					{
+						var colRow = colRowList[n];
+						if(colRow.innerHTML != "")
+						{
+							colRow.style.backgroundColor = "#03DAC6";
+
+						}
+					}
+
+				}
+			}
+		</script>
 	</body>
 </html>
