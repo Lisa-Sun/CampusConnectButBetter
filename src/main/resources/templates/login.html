@@ -9,23 +9,26 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body style="float:left;">
-    <div class="box" style="width:30%;height:90%;float:left">
+    <div class="box" style="width:30%;height:90%;float:left" >
     
     
        <center> <h1 ><b>CampusConnectButBetter</b></h1>
            
-            <form style="padding:10px" th:action = "@{/login}" th:object = "${loginData}" method = "POST">
+           <div th:if="${!valid}">
+                    <div class="invalid">
+                        Invalid username or password.
+                    </div>
+                </div>
+           
+            <form style="padding:10px" th:action = "@{/login}"  method = "POST">
                 
-                <input type="text" placeholder="email" class="text" th:field = "*{id}"/>
-                <input type="password" placeholder="password" class="text" th:field = "*{passwordHash}"/>
+                <input type="text" name="username" placeholder="email" class="text" />
+                <input type="password" name="password" placeholder="password" class="text" />
                
                	<div id="signup" style="overflow: hidden;">
-                	 <input type="password" placeholder="repeat password" class="text" />
-                	 <!--
-                	 <input type="text" placeholder="first name" class="text" />
-                	  <input type="text" placeholder="last name" class="text" />
-                	  -->
-                	   <input type="text" placeholder="major" class="text" />
+                	 <input type="password" style="height:auto" placeholder="repeat password" class="text" />
+              
+                	   <input type="text" style="height:auto"  placeholder="major" class="text" />
                 	    <input type="button" class="boxbutton" value="Register" style="width:100%; margin-right:10px">
                 </div>
                 

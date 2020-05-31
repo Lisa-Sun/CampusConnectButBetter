@@ -78,11 +78,11 @@ public class BetterCampusConnectApplication {
 	
 	@Bean
     public CommandLineRunner saveLoginData(LoginRepository repository) {
-        return (args) -> {
-        	repository.save(new LoginData("123", false, "marc","marc@gmail.com","f873&#*Gfc8"));
-        	repository.save(new LoginData("420", true, "bobd","bob@gmail.com","f9qe7gf8GE"));
-        	
-        };
+		 return (args) -> {
+	        	repository.save(new LoginData("123", false, "marc@gmail.com","630 999 9999","marc123"));
+	        	repository.save(new LoginData("456", false, "bob@gmail.com","630 420 6969","bob123"));
+	        	
+	        };
    }
 	
 	@Bean
