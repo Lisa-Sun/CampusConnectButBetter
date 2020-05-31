@@ -60,7 +60,7 @@ public class BetterCampusConnectApplication {
         	course.save(new Course(
         			"f33f32", "Mat", "101", Arrays.asList("dqdf32f3"), 
         			Arrays.asList("2r2rf23f"), 20, Arrays.asList("f32fw","fewf8w"), 
-        			Arrays.asList(), LocalDateTime.of(2020, 6, 12, 6,0), "DePaul Center", 10024, Arrays.asList("Steve","Barns"), 
+        			Arrays.asList(), LocalDateTime.of(2020, 6, 12, 18,0), "DePaul Center", 10024, Arrays.asList("Steve","Barns"), 
         			LocalDateTime.now(), "Math lessons, for the guys"));
         };
    }
@@ -69,7 +69,7 @@ public class BetterCampusConnectApplication {
     public CommandLineRunner saveCourseOverviewData(CourseOverviewRepository course) {
         return (args) -> {
         	course.save(new CourseOverview(
-        			"f33f32", "Mat", "101",  LocalDateTime.of(2020, 6, 12, 6,0),"DePaul Center", "Math lessons, for the guys"));
+        			"f33f32", "Mat", "101",  LocalDateTime.of(2020, 6, 12, 18,0),"DePaul Center", "Math lessons, for the guys"));
         	course.save(new CourseOverview(
         			"432fh8", "Sci", "202", LocalDateTime.now(),"Lincoln Parks", "Science lessons, for the gals"));
         };
