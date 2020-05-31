@@ -13,142 +13,242 @@
 	</head>
 
 	<body>
+		<h2 th:text = ${classDate}></h2>
 		<h1 class = "display-4">My Timetable</h1>
 		<table align="center" cellpadding="5px" border="1" cellspacing="5px" class = "timeTable">
 			<thead>
 				<th scope = "col">Time</th>
-				<th scope = "col">Monday</th>
-				<th scope = "col">Tuesday</th>
-				<th scope = "col">Wednesday</th>
-				<th scope = "col">Thursday</th>
-				<th scope = "col">Friday</th>
+				<th id = "monday" scope = "col">Monday</th>
+				<th id = "tuesday" scope = "col">Tuesday</th>
+				<th id = "wednesday" scope = "col">Wednesday</th>
+				<th id = "thursday" scope = "col">Thursday</th>
+				<th id = "friday" scope = "col">Friday</th>
 
 			</thead>
 			<tbody>
 				<tr>
 					<th scope = "row">8:00 AM</th>
-					<td ></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday8Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday8"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday8Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday8"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday8Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday8"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday8Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday8"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday8Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday8"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">9:00 AM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday9Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday9"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday9Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday9"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday9Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday9"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday9Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday9"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday9Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday9"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">10:00 AM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday10Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday10"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday10Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday10"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday10Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday10"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday10Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday10"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday10Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday10"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">11:00 AM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday11Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday11"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday11Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday11"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday11Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday11"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday11Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday11"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday11Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday11"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">12:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday12Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday12"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday12Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday12"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday12Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday12"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday12Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday12"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday12Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday12"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">1:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday1Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday1"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday1Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday1"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday1Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday1"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday1Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday1"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday1Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday1"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">2:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday2Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday2"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday2Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday2"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday2Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday2"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday2Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday2"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday2Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday2"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">3:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday3Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday3"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday3Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday3"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday3Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday3"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday3Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday3"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday3Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday3"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">4:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday4Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday4"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday4Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday4"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday4Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday4"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday4Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday4"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday4Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday4"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">5:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday5Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday5"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday5Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday5"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday5Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday5"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday5Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday5"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday5Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday5"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">6:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday6Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday6"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday6Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday6"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday6Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday6"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday6Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday6"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday6Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday6"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">7:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday7Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday7"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday7Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday7"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday7Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday7"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday7Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday7"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday7Schedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday7"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">8:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday8PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday8P"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday8PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday8P"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday8PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday8P"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday8PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday8P"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday8PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday8P"></td>
 				</tr>
 
 				<tr>
 					<th scope="row">9:00 PM</th>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
-					<td><span></span></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentMonday9PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "monday9P"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentTuesday9PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" id = "tuesday9P"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentWednesday9PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "wednesday9P"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentThursday9PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"id = "thursday9P"></td>
+					<td th:utext=
+					"${#strings.replace( #strings.escapeXml( studentFriday9PSchedule ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"
+					id = "friday9P"></td>
+				</tr>
 				</tr>
 
 			</tbody>
