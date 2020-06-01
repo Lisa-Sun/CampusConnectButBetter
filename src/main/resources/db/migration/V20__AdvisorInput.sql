@@ -8,3 +8,13 @@ INSERT INTO AdvisorInfo
  	'pf',
  	'skinner',
 	'SM');
+ VALUES
+	('d00220',
+	'advisor',
+	'active',
+	'LDaVinci@mail.college.edu',
+	'555-777-2221',
+	'Leonardo',
+	'Da Vinci',
+	'SM'
+	);
