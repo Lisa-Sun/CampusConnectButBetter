@@ -152,4 +152,7 @@ public class Student implements Serializable {
 		return accountbalance;
 	}
 	
+	public AdvisorInfo getLastNameFirstTwo() {
+		return this.lastNameFirstTwo;
+	}
 }

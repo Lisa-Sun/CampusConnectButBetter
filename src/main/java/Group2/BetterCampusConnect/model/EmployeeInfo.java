@@ -41,7 +41,8 @@ public class EmployeeInfo implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private EmployeeStatus employeeStatus;
 	
-	private String employeeEmail;
+	@Column(name = "employee_email")
+	public String employeeEmail;
 	
 	private String employeeNumber;
 

@@ -24,19 +24,19 @@ import lombok.ToString;
 
 public class AdvisorInfo extends EmployeeInfo{
 	 @Column(name = "firstname")
-	 private String firstname;
+	 public String firstname;
 	 
 	 @Column(name = "lastname")
-	 private String lastname;
+	 public String lastname;
 	
 	 @Column(name = "lastname_student_section_id")
-	 private String lastname_student_section_id;
-	 
+	 public String lastname_student_section_id;
+
 	 @OneToMany(
 			 mappedBy = "lastNameFirstTwo",
 			 cascade = CascadeType.ALL,
 			 fetch = FetchType.LAZY)	
 	 @ToString.Exclude
-	 private List<Student> student;
+	 public List<Student> student;
 }
 

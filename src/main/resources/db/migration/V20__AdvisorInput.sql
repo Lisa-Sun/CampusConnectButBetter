@@ -7,4 +7,4 @@ INSERT INTO AdvisorInfo
  	'456-123-7890',
  	'pf',
  	'skinner',
-	'SM')
+	'SM');

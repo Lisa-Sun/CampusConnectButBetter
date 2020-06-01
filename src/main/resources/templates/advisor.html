@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Course Tabel Test</title>
+    <title>Advisors</title>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
     <!--link js here when it is written-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -9,8 +9,6 @@
 
     <!--<link rel="stylesheet" href="style.css">-->
     <link rel="stylesheet" href="/static/style.css">
-
-
 </head>
 
 <body>
@@ -19,7 +17,7 @@
             <img src = "../imgs/advisor.png" width="200" height="200">
             <div>
                 <h1 style="margin: 30px; font-weight: bold; float:left;" th:text="${obj.firstname + ' ' + obj.lastname}"></h1>
-                <h6 style="margin-left: 30px; font-weight: bold;">advisorEmail@depaul.edu</h6>
+                <h6 style="margin-left: 30px; font-weight: bold;" th:text="${obj.employeeEmail}"></h6>
             </div>
             </div>
     </div>
