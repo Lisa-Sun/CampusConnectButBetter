@@ -18,9 +18,13 @@ font-weight: 900;
 a:hover{
 color: #00a896;
 text-decoration: none;
-
 }
 
+.advisor {
+  margin:10px;
+  float:left;
+  display:flex;
+}
 .boxnavbar{
 	width:100%;
 	margin:0px;

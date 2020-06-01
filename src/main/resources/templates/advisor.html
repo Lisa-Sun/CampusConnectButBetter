@@ -14,9 +14,16 @@
 </head>
 
 <body>
-	<tr th:each="obj : ${advisorInfo}">
-     <td th:text="${obj.firstname}"></td>
-     <td th:text = "${obj.lastname}"></td>
-</tr>	
+    <div class="table-responsive">
+        <div class="box advisor" th:each="obj : ${advisorInfo}">
+            <img src = "../imgs/advisor.png" width="200" height="200">
+            <div>
+                <h1 style="margin: 30px; font-weight: bold; float:left;" th:text="${obj.firstname + ' ' + obj.lastname}"></h1>
+                <h6 style="margin-left: 30px; font-weight: bold;">advisorEmail@depaul.edu</h6>
+            </div>
+            </div>
+    </div>
+    
+		
 </body>
 </html>
