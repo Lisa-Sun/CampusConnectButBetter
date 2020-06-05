@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+
 import java.time.LocalDateTime;
 import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
@@ -33,9 +36,13 @@ public class TimetableController
 	CourseRepository courseRepo;
 
 	@GetMapping("myTimeTable")
-	public String goTimeTable(Model model)
+	public String goTimeTable(Model model,HttpServletRequest request)
 	{
-		Student student = studentRepo.findByStudentId("1234abcd");
+		Student student = new Student();
+		Object sessionChecker = request.getSession().getAttribute("userId");
+		if(sessionChecker == null) {return "redirect:login";}
+		else {student = studentRepo.findByStudentId(sessionChecker.toString());}
+	
 		Schedule studentSchedule = student.getSchedule();
 		
 		List<String>monClasses = studentSchedule.getMonday();

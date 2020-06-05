@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +24,14 @@ public class FinanceController {
 
 
     @RequestMapping("/financialPlanningBrowser")
-    public String FinancialPlan(Model model)
+    public String FinancialPlan(Model model,HttpServletRequest request)
     {
+    	Object sessionChecker = request.getSession().getAttribute("userId");
+		if (sessionChecker == null) {
+			return "redirect:login";
+		} 
+		/*Use this line as current user's id:*/
+		//String id = request.getSession().getAttribute("userId").toString();
         return "financialPlanningBrowser";
     }
 

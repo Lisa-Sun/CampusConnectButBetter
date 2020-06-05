@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,8 +30,15 @@ public class CourseController {
 	
 	
 	@RequestMapping("/coursebrowser")
-	public String courseGeneral(Model model)
+	public String courseGeneral(Model model,HttpServletRequest request)
 	{
+	Object sessionChecker = request.getSession().getAttribute("userId");
+	if (sessionChecker == null) {
+		return "redirect:login";
+	} 
+	/*Use this line as current user's id:*/
+	//String id = request.getSession().getAttribute("userId").toString();
+	
 		//model.addAttribute("courses", courseOverviewRepo.findAll());
 		return "coursebrowser";
 	}

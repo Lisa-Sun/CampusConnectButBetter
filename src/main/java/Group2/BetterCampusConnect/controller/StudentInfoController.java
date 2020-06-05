@@ -3,6 +3,8 @@ package Group2.BetterCampusConnect.controller;
 
 import java.math.BigDecimal;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,13 @@ public class StudentInfoController {
 	public StudentInfoController() {}
 	
     @GetMapping("/studentinfo")
-    public String getStudentinfo(Model model, @RequestParam String id) {
+    public String getStudentinfo(Model model, @RequestParam String id, HttpServletRequest request) {
+    	Object sessionChecker = request.getSession().getAttribute("userId");
+		if (sessionChecker == null) {
+			return "redirect:login";
+		} 
+		/*Use this line as current user's id:*/
+		//String id = request.getSession().getAttribute("userId").toString();
     	Student students = repo.findByStudentId(id);
     	model.addAttribute("studentVar",students);
         return "/studentinfo";
@@ -37,7 +45,13 @@ public class StudentInfoController {
     }
 
     @GetMapping("/accountbalance")
-    public String getaccountbalance(Model model, @RequestParam String id) {
+    public String getaccountbalance(Model model, @RequestParam String id, HttpServletRequest request) {
+    	Object sessionChecker = request.getSession().getAttribute("userId");
+		if (sessionChecker == null) {
+			return "redirect:login";
+		} 
+		/*Use this line as current user's id:*/
+		//String id = request.getSession().getAttribute("userId").toString();
     	Student students = repo.findByStudentId(id);
     	model.addAttribute("studentVar",students);
         return "/accountbalance";

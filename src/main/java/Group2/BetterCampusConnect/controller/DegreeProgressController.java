@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,8 +23,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DegreeProgressController
 {
 	@GetMapping("/myProgress")
-	public String dispalyProgress(Model model)
+	public String dispalyProgress(Model model,HttpServletRequest request)
 	{
+		Object sessionChecker = request.getSession().getAttribute("userId");
+		if (sessionChecker == null) {
+			return "redirect:login";
+		} 
+		/*Use this line as current user's id:*/
+		//String id = request.getSession().getAttribute("userId").toString();
+		
 		return "/degreeProgress";
 	}
 }

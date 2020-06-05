@@ -81,7 +81,7 @@ public class BetterCampusConnectApplication {
 		 return (args) -> {
 	        	repository.save(new LoginData("123", false, "marc@gmail.com","630 999 9999","marc123"));
 	        	repository.save(new LoginData("456", false, "bob@gmail.com","630 420 6969","bob123"));
-	        	
+	        	repository.save(new LoginData("1234abcd", false, "JSmith@depaul.edu","630 420 6969","abcd1234"));
 	        };
    }
 	

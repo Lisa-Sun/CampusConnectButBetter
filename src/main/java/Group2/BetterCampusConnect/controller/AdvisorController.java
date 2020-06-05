@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,8 +24,12 @@ public class AdvisorController
 {
 	@Autowired StudentRepository studentRepository;
 	@GetMapping("/myAdvisor")
-	public String displayAdvisor(Model model)
+	public String displayAdvisor(Model model,HttpServletRequest request)
 	{
+		Object sessionChecker = request.getSession().getAttribute("userId");
+		if (sessionChecker == null) {
+			return "redirect:login";
+		}
 		Student currentStudent = studentRepository.findByStudentId("1234abcd");
 		AdvisorInfo studentAdvisor = currentStudent.getLastNameFirstTwo();
 		model.addAttribute("advisorInfo", studentAdvisor);

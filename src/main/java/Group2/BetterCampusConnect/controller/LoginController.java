@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.io.IOException;
 import java.util.Optional;
 
+import javax.naming.spi.ObjectFactory;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,8 +42,7 @@ public class LoginController
 		Optional<LoginData> login = loginData.findByLogin(username, password);
 		if(login.isPresent()) {
 			model.addAttribute("userId",login.get().id);
-			
-			return "redirect:hello";
+			return "redirect:StudentProfile?id="+login.get().id;
 		}else {
 			model.addAttribute("valid", false);
 			return "login";
