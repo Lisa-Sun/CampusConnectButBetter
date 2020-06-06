@@ -19,22 +19,37 @@
                         Invalid username or password.
                     </div>
                 </div>
+            <div th:if="${!userExists}">
+                    <div class="UserExists">
+                        User already exists.
+                    </div>
+                </div>
            
-            <form style="padding:10px" th:action = "@{/login}"  method = "POST">
+            <form style="padding:10px" data-th-action = "@{/login}" data-th-object="${model}" method = "POST">
                 
                 <input type="text" name="username" placeholder="email" class="text" />
                 <input type="password" name="password" placeholder="password" class="text" />
                
                	<div id="signup" style="overflow: hidden;">
-                	 <input type="password" style="height:auto" placeholder="repeat password" class="text" />
+                  
+
+                	 <input type="password" name = "repeatPassword" style="height:auto" placeholder="repeat password" class="text" />
+
+                   <input type="text" name = "studentFirstName" style="height:auto" placeholder="firstName" class="text" />
+
+                   <input type="text" name = "studentLastName" style="height:auto" placeholder="lastName" class="text" />
               
-                	   <input type="text" style="height:auto"  placeholder="major" class="text" />
-                	    <input type="button" class="boxbutton" value="Register" style="width:100%; margin-right:10px">
+                	   <input type="text" name = "major" style="height:auto"  placeholder="major" class="text" />
+
+                <input type="submit" name = "action" class="boxbutton" value="Register" style="width:100%; margin-right:10px">
+
+                      
+
                 </div>
                 
                
                <div id ="signupText">
-                	<input type="submit" class="boxbutton" value="Login" style="width:100%; margin-right:10px">
+                	<input type="submit" name = "action" class="boxbutton" value="Login" style="width:100%; margin-right:10px">
                 
               
             		<h4 > Dont have an account? <a href="javascript: void(0)" onClick="register()" >Sign up</a> </h4> 
