@@ -24,7 +24,11 @@
                         User already exists.
                     </div>
                 </div>
-           
+             <div th:if="${!missingInput}">
+                    <div class="missingInput">
+                        Missing input.
+                    </div>
+                </div> 
             <form style="padding:10px" data-th-action = "@{/login}" data-th-object="${model}" method = "POST">
                 
                 <input type="text" name="username" placeholder="email" class="text" />
