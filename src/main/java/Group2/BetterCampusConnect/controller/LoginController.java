@@ -18,6 +18,7 @@ import java.util.Random;
 import javax.naming.spi.ObjectFactory;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -52,6 +53,7 @@ public class LoginController
 		}else {
 			model.addAttribute("valid", false);
 			model.addAttribute("userExists", true);
+			model.addAttribute("missingInput", true);
 			return "login";
 		}
 		
@@ -62,9 +64,8 @@ public class LoginController
 			@RequestParam(name = "username", required = true, defaultValue = "")String username, 
 			@RequestParam(name = "password", required = true, defaultValue = "")String password,
 			@RequestParam(name = "repeatPassword", required = true, defaultValue = "")String repeatPassword, 
-			@RequestParam(name = "firstName", required = true, defaultValue = "")String firstName,
-			@RequestParam(name = "lastName", required = true, defaultValue = "")String lastName,
-
+			@RequestParam(name = "studentFirstName", required = true, defaultValue = "")String firstName,
+			@RequestParam(name = "studentLastName", required = true, defaultValue = "")String lastName,
 			@RequestParam(name = "major", required = true, defaultValue = "")String major,
 			Model model, HttpServletResponse httpResponse )
 	{
@@ -72,6 +73,7 @@ public class LoginController
 		if(login.isPresent()) {
 			model.addAttribute("valid", true);
 			model.addAttribute("userExists", false);
+			model.addAttribute("missingInput", true);
 			return "login";
 
 
@@ -79,7 +81,8 @@ public class LoginController
 		else if("".equals(username) || "".equals(password)|| "".equals(firstName)|| "".equals(lastName) || "".equals(repeatPassword) || "".equals(major))
 		{
 			model.addAttribute("valid", true);
-			model.addAttribute("userExists", false);
+			model.addAttribute("userExists", true);
+			model.addAttribute("missingInput", false);
 			return "login";
 
 		}
@@ -100,9 +103,15 @@ public class LoginController
 			newStudent.setemail(username);
 			newStudent.setstudentId(Integer.toString(id));
 			newStudent.setmajor(major);
+			newStudent.setminor("");
+			newStudent.setdegreelevel("");
+			double gpa = 0.0;
+			newStudent.setgpa(new BigDecimal(gpa));
+			newStudent.setaccountbalance(new BigDecimal(gpa));
 			studentRepo.save(newStudent);
-			
-			return "redirect:StudentProfile?id="+login.get().id;
+
+			Optional<LoginData> newLogin  = loginData.findByLogin(username, password);
+			return "redirect:StudentProfile?id="+newLogin.get().id;
 
 		}
 				
@@ -113,6 +122,7 @@ public class LoginController
     public String login(Model model) {
     	model.addAttribute("valid", true);
     	model.addAttribute("userExists", true);
+    	model.addAttribute("missingInput", true);
         return "login";
     }
 
