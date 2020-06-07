@@ -101,13 +101,11 @@ public class LoginController
 			newStudent.setstudentId(Integer.toString(id));
 			newStudent.setmajor(major);
 			studentRepo.save(newStudent);
-
+			
 			return "redirect:StudentProfile?id="+login.get().id;
 
 		}
-		
-		return "login";
-		
+				
 	}
 
 	 @GetMapping("/login")
