@@ -28,6 +28,9 @@ public class StudentProfileController {
 		/*Use this line as current user's id:*/
 		//String id = request.getSession().getAttribute("userId").toString();
     	Student students = repo.findByStudentId(id);
+    	if(students==null) {
+    		return "redirect:ErrorPage";
+    	}
     	model.addAttribute("Student",students);
         return "/StudentProfile";
     }

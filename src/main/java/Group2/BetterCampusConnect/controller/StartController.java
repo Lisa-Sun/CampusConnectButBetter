@@ -23,7 +23,12 @@ public class StartController {
 		}
 
 	}
+	
+	@GetMapping("/ErrorPage")
+	public String errorpage(Model model) {
 
+		return "ErrorPage";
+	}
 
 	@GetMapping("/hello")
 	public String greeting1(Model model) {
