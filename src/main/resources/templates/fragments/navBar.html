@@ -1,18 +1,6 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Campus Connect... but Better</title>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-    <!--link js here when it is written-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-</head>
 <body style="margin:0px;padding:0px;border:none;">
-	<div th:replace="navBar :: ourNavBar"></div>
-	<!--
-	<div class="boxnavbar">
+	<div th:fragment="ourNavBar" class="boxnavbar">
 	    <h1 class="display-4">C2B2</h1>
 	    <nav style="color:#00a896;font-weight:bold">
 	        <a href="/hello">GREETINGS</a> 
@@ -26,6 +14,5 @@
  		<a href="/StudentProfile?id=1234abcd">STUDENT PROFILE</a>
 	    </nav>
     </div>
--->
 </body>
 </html>

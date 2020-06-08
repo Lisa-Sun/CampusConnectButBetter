@@ -11,7 +11,8 @@
 	<link rel="stylesheet" href="static/style.css">
 </head>
 <body style="padding:0px">
-	<div class="boxnavbar">
+    <div th:replace="fragments/navBar :: ourNavBar"></div>
+	<!--<div class="boxnavbar">
 	    <h1 class="display-4">C2B2</h1>
         <div th:replace="fragments/logout :: logoutButton"></div>
 	    <nav style="color:#00a896;font-weight:bold">
@@ -22,7 +23,7 @@
 	        <a href="/myTimeTable">MY TIMETABLE</a>
 	        <a href="/ImportantDates">IMPORTANT DATES</a>
 	    </nav>
-    </div>
+    </div>-->
 <div class="container body-content" style="margin-top:10px">
 <div class="jumbotron" style="background-color: #03DAC6;">
     <h1>Welcome back, <span th:text="${Student.getfirstName()}"></span></h1>

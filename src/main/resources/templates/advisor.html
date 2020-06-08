@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <div th:replace="fragments/navBar :: ourNavBar"></div>
     <div class="table-responsive">
         <div class="box advisor" th:each="obj : ${advisorInfo}">
             <img src = "../imgs/advisor.png" width="200" height="200">

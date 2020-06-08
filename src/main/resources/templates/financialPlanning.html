@@ -2,6 +2,7 @@
 <body>
     <!--<h1 class="display-4"><p th:text="'This is plan, ' + ${plan} + '!'"></p></h1>-->
     <div layout:fragment="content" class="row">
+        
         <div class="table-responsive" th:each="plan : ${plans}">
             <div>
                 <h1 style="font-weight:bold;float:left" th:text ="${plan.planType} + '&nbsp;'"></h1> 
