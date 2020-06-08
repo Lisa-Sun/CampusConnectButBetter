@@ -17,6 +17,7 @@ import java.util.Optional;
 import java.util.Random;
 import javax.naming.spi.ObjectFactory;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @SessionAttributes("userId")
 @Controller
@@ -39,6 +41,22 @@ public class LoginController
 	@Autowired
 	private StudentRepository studentRepo;
 
+	@RequestMapping(value = "/login", method = RequestMethod.POST, params = "action=LOGOUT")
+	public String logout(HttpServletRequest request, HttpServletResponse response, SessionStatus status )
+	{
+		try
+		{
+			request.logout();
+			status.setComplete();
+			return "logout";
+
+		}
+		catch(Exception e)
+		{
+			return "ErrorPage";
+		}
+		//Object sessionChecker = request.getSession().getAttribute("userId");
+	}
 	
 	@RequestMapping(value = "/login", method=RequestMethod.POST, params="action=Login")
 	public String loginGeneral(
