@@ -3,15 +3,16 @@
 	<div th:fragment="ourNavBar" class="boxnavbar">
 	    <h1 class="display-4">C2B2</h1>
 	    <nav style="color:#00a896;font-weight:bold">
-	        <a href="/hello">GREETINGS</a> 
 	        <a href="/coursebrowser">FIND COURSES</a> 
-			<a href="/login">LOGIN</a> 
 			<a href="/financialPlanningBrowser">FINACIAL PLANS</a>
 	        <a href="/myAdvisor">CONTACT ADVISOR</a>
 	        <a href="/myProgress">DEGREE PROGRESS</a>
 	        <a href="/myTimeTable">MY TIMETABLE</a>
 	        <a href="/ImportantDates">IMPORTANT DATES</a>
  		<a href="/StudentProfile?id=1234abcd">STUDENT PROFILE</a>
+ 		<form data-th-action = "@{/login}" th:fragment = "logoutButton"  data-th-object="${model}"  method = "post">
+		   <input type="submit" name = "action" class="boxbutton" value="LOGOUT" style="width:20; float:right">
+	</form>
 	    </nav>
     </div>
 </body>
