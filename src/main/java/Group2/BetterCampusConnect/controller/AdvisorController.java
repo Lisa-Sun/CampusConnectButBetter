@@ -30,7 +30,7 @@ public class AdvisorController
 		if (sessionChecker == null) {
 			return "redirect:login";
 		}
-		Student currentStudent = studentRepository.findByStudentId("1234abcd");
+		Student currentStudent = studentRepository.findByStudentId(sessionChecker.toString());
 		AdvisorInfo studentAdvisor = currentStudent.getLastNameFirstTwo();
 		model.addAttribute("advisorInfo", studentAdvisor);
 		return "advisor";

@@ -20,14 +20,14 @@ public class StudentProfileController {
 	public StudentProfileController() {}
 	
     @GetMapping("/StudentProfile")
-    public String getStudentProfile(Model model, @RequestParam String id,HttpServletRequest request) {
+    public String getStudentProfile(Model model, HttpServletRequest request) {
     	Object sessionChecker = request.getSession().getAttribute("userId");
 		if (sessionChecker == null) {
 			return "redirect:login";
 		} 
 		/*Use this line as current user's id:*/
-		//String id = request.getSession().getAttribute("userId").toString();
-    	Student students = repo.findByStudentId(id);
+		String studentId = request.getSession().getAttribute("userId").toString();
+    	Student students = repo.findByStudentId(studentId);
     	if(students==null) {
     		return "redirect:ErrorPage";
     	}

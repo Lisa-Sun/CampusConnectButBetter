@@ -41,13 +41,15 @@ public class LoginController
 	@Autowired
 	private StudentRepository studentRepo;
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST, params = "action=LOGOUT")
+	@RequestMapping(value = "/login", method = RequestMethod.GET, params = "action=LOGOUT")
 	public String logout(HttpServletRequest request, HttpServletResponse response, SessionStatus status )
 	{
+		status.setComplete();
+		    request.getSession().invalidate();
+
 		try
 		{
 			request.logout();
-			status.setComplete();
 			return "logout";
 
 		}
@@ -129,6 +131,7 @@ public class LoginController
 			studentRepo.save(newStudent);
 
 			Optional<LoginData> newLogin  = loginData.findByLogin(username, password);
+			model.addAttribute("userId",login.get().id);
 			return "redirect:StudentProfile?id="+newLogin.get().id;
 
 		}
