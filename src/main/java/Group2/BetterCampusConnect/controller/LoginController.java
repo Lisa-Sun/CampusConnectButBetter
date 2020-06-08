@@ -41,6 +41,7 @@ public class LoginController
 	@Autowired
 	private StudentRepository studentRepo;
 
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET, params = "action=LOGOUT")
 	public String logout(HttpServletRequest request, HttpServletResponse response, SessionStatus status )
 	{
@@ -50,7 +51,8 @@ public class LoginController
 		try
 		{
 			request.logout();
-			return "logout";
+		
+			return "login";
 
 		}
 		catch(Exception e)
@@ -66,6 +68,7 @@ public class LoginController
 			@RequestParam(name = "password", required = true, defaultValue = "")String password,
 			Model model, HttpServletResponse httpResponse )
 	{
+		
 		Optional<LoginData> login = loginData.findByLogin(username, password);
 		if(login.isPresent()) {
 			model.addAttribute("userId",login.get().id);
@@ -131,7 +134,7 @@ public class LoginController
 			studentRepo.save(newStudent);
 
 			Optional<LoginData> newLogin  = loginData.findByLogin(username, password);
-			model.addAttribute("userId",login.get().id);
+			model.addAttribute("userId", newLogin.get().id);
 			return "redirect:StudentProfile?id="+newLogin.get().id;
 
 		}
