@@ -35,6 +35,16 @@ public class TimetableController
 	@Autowired
 	CourseRepository courseRepo;
 
+	@GetMapping("NoSchedule")
+	public String noTimeTable(Model model, HttpServletRequest request)
+	{
+				Student student = new Student();
+
+		Object sessionChecker = request.getSession().getAttribute("userId");
+		if(sessionChecker == null) {return "redirect:login";}
+		else {student = studentRepo.findByStudentId(sessionChecker.toString());}
+		return "/NoSchedule";
+	}
 	@GetMapping("myTimeTable")
 	public String goTimeTable(Model model,HttpServletRequest request)
 	{
@@ -42,53 +52,59 @@ public class TimetableController
 		Object sessionChecker = request.getSession().getAttribute("userId");
 		if(sessionChecker == null) {return "redirect:login";}
 		else {student = studentRepo.findByStudentId(sessionChecker.toString());}
-	
+		
 		Schedule studentSchedule = student.getSchedule();
+		if(studentSchedule == null){return "redirect:NoSchedule";}
+		else
 		
-		List<String>monClasses = studentSchedule.getMonday();
-		List<String>tuesClasses = studentSchedule.getTuesday();
-		List<String>wedClasses = studentSchedule.getWednesday();
-		List<String>thursClasses = studentSchedule.getThursday();
-		List<String>friClasses = studentSchedule.getFriday();
-		
-		//Optional<Course> courseFound;
-		DateTimeFormatter dateFormat  = DateTimeFormatter.ofPattern("yyyy-MM-dd HH a");
-		for(int i = 0; i < monClasses.size(); i++)
 		{
-			Optional<Course> courseOptionalFound = courseRepo.findById(monClasses.get(i));
-			Course course = courseOptionalFound.get();
-			String courseName =course.name + course.sectionNumber;
-			courseName = courseName + "\n";
-			courseName = courseName + course.building;
 
-			LocalDateTime classDate = course.startTime;
-			String formattedDate = classDate.format(dateFormat);
+			List<String>monClasses = studentSchedule.getMonday();
+
+			List<String>tuesClasses = studentSchedule.getTuesday();
+			List<String>wedClasses = studentSchedule.getWednesday();
+			List<String>thursClasses = studentSchedule.getThursday();
+			List<String>friClasses = studentSchedule.getFriday();
 			
-
-			DayOfWeek dayOfWeek = classDate.getDayOfWeek();
-			String weekdayString = dayOfWeek.toString().toLowerCase();
-			weekdayString = weekdayString.substring(0,1).toUpperCase() + weekdayString.substring(1);
-
-			String thymeLeafId = "student" + weekdayString;
-
-			int classStartHour = classDate.getHour();
-			String classStringStartHour = Integer.toString(classStartHour);
-			if(classStartHour > 12)
+			//Optional<Course> courseFound;
+			DateTimeFormatter dateFormat  = DateTimeFormatter.ofPattern("yyyy-MM-dd HH a");
+			for(int i = 0; i < monClasses.size(); i++)
 			{
-				classStartHour = classStartHour - 12;
-				classStringStartHour = Integer.toString(classStartHour);
-				if (classStartHour >= 8)
-				{
-					classStringStartHour = classStringStartHour +"p";
-				}
-			}
-			
-			thymeLeafId += classStringStartHour;
-			thymeLeafId += "Schedule";
-			model.addAttribute(thymeLeafId, courseName);
-			model.addAttribute("classDate", courseName);
+				Optional<Course> courseOptionalFound = courseRepo.findById(monClasses.get(i));
+				Course course = courseOptionalFound.get();
+				String courseName =course.name + course.sectionNumber;
+				courseName = courseName + "\n";
+				courseName = courseName + course.building;
 
+				LocalDateTime classDate = course.startTime;
+				String formattedDate = classDate.format(dateFormat);
+				
+
+				DayOfWeek dayOfWeek = classDate.getDayOfWeek();
+				String weekdayString = dayOfWeek.toString().toLowerCase();
+				weekdayString = weekdayString.substring(0,1).toUpperCase() + weekdayString.substring(1);
+
+				String thymeLeafId = "student" + weekdayString;
+
+				int classStartHour = classDate.getHour();
+				String classStringStartHour = Integer.toString(classStartHour);
+				if(classStartHour > 12)
+				{
+					classStartHour = classStartHour - 12;
+					classStringStartHour = Integer.toString(classStartHour);
+					if (classStartHour >= 8)
+					{
+						classStringStartHour = classStringStartHour +"p";
+					}
+				}
+				
+				thymeLeafId += classStringStartHour;
+				thymeLeafId += "Schedule";
+				model.addAttribute(thymeLeafId, courseName);
+				model.addAttribute("classDate", courseName);
+
+			}
+			return "/timetable";
 		}
-		return "/timetable";
 	}
 }
