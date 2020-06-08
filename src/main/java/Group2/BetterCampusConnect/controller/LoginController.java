@@ -52,7 +52,7 @@ public class LoginController
 		{
 			request.logout();
 		
-			return "login";
+			return "logout";
 
 		}
 		catch(Exception e)
@@ -94,6 +94,7 @@ public class LoginController
 	{
 		Optional<LoginData> login = loginData.findById(username);
 		if(login.isPresent()) {
+			System.out.println("LKDSF");
 			model.addAttribute("valid", true);
 			model.addAttribute("userExists", false);
 			model.addAttribute("missingInput", true);
@@ -103,6 +104,8 @@ public class LoginController
 		}
 		else if("".equals(username) || "".equals(password)|| "".equals(firstName)|| "".equals(lastName) || "".equals(repeatPassword) || "".equals(major))
 		{
+						System.out.println("LKDSF_1");
+
 			model.addAttribute("valid", true);
 			model.addAttribute("userExists", true);
 			model.addAttribute("missingInput", false);
@@ -111,6 +114,8 @@ public class LoginController
 		}
 		else
 		{
+						System.out.println("LKDSF_2");
+
 			Random rand = new Random();
 			int id = rand.nextInt(900);
 			while(loginData.findById(Integer.toString(id)).isPresent())
@@ -133,9 +138,11 @@ public class LoginController
 			newStudent.setaccountbalance(new BigDecimal(gpa));
 			studentRepo.save(newStudent);
 
-			Optional<LoginData> newLogin  = loginData.findByLogin(username, password);
-			model.addAttribute("userId", newLogin.get().id);
-			return "redirect:StudentProfile?id="+newLogin.get().id;
+
+			model.addAttribute("userId", Integer.toString(id));
+			System.out.println("LKDSF_4");
+
+			return "redirect:StudentProfile?id="+Integer.toString(id);
 
 		}
 				
